@@ -21,6 +21,7 @@ PLAYER_SPEED = 15
 
 # PLAYER CONTROL ENUM
 
+
 class Direction(Enum):
     NORTH = "north"
     SOUTH = "south"
@@ -32,7 +33,9 @@ class Direction(Enum):
     NORTHWEST = "northwest"
     STATIC = "static"
 
+
 # ----- HELPER FUNCTIONS -----
+
 
 def init_display():
     """
@@ -56,21 +59,21 @@ def calculate_direction(player_pos, mouse_pos):
     if angle_degrees < 0:
         angle_degrees += 360
     if 337.5 <= angle_degrees or angle_degrees < 22.5:
-        return Direction.EAST  
+        return Direction.EAST
     elif 22.5 <= angle_degrees < 67.5:
-        return Direction.SOUTHEAST  
+        return Direction.SOUTHEAST
     elif 67.5 <= angle_degrees < 112.5:
-        return Direction.SOUTH  
+        return Direction.SOUTH
     elif 112.5 <= angle_degrees < 157.5:
-        return Direction.SOUTHWEST  
+        return Direction.SOUTHWEST
     elif 157.5 <= angle_degrees < 202.5:
-        return Direction.WEST  
+        return Direction.WEST
     elif 202.5 <= angle_degrees < 247.5:
-        return Direction.NORTHWEST  
+        return Direction.NORTHWEST
     elif 247.5 <= angle_degrees < 292.5:
-        return Direction.NORTH  
+        return Direction.NORTH
     elif 292.5 <= angle_degrees < 337.5:
-        return Direction.NORTHEAST  
+        return Direction.NORTHEAST
 
 
 def handle_input_with_mouse_8_directions(player_pos):
@@ -98,6 +101,7 @@ def load_sprite_frames(target_filepath, sprite_size):
     load individual frame images stored as pngs from the given file path
     """
     import os
+
     frames = []
     for file_name in sorted(os.listdir(target_filepath)):
         if file_name.endswith(".png"):
@@ -137,7 +141,8 @@ def render_with_8_directions(screen, positions, sprites, animation_states, direc
         elif direction == Direction.NORTHWEST:
             frame = pygame.transform.rotate(frame, -135)
         screen.blit(
-            frame, (pos["x"] - PLAYER_SPRITE_SIZE // 2, pos["y"] - PLAYER_SPRITE_SIZE // 2)
+            frame,
+            (pos["x"] - PLAYER_SPRITE_SIZE // 2, pos["y"] - PLAYER_SPRITE_SIZE // 2),
         )
     pygame.display.flip()
 
