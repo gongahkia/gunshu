@@ -1,16 +1,4 @@
-all:main
-
-client: ./src/client.py
-	@echo "executing client script..."
-	@python3 ./src/client.py
-
-server: ./src/server.py
-	@echo "executing server script..."
-	@python3 ./src/server.py
-
-main: ./src/main.py
-	@echo "executing main script..."
-	@python3 ./src/main.py
+all:force
 
 run: config build
 	@echo "executing run target..."
@@ -25,6 +13,19 @@ config:
 	@echo "installing dependancies for local development..."
 	@pip install pyinstaller
 
-build: ./src/server.py
+force:
+	@echo "Forcing rebuild..."
+
+clean: ./bin
+	@echo "Cleaning build files..."
+	@rm -rf ./bin/
+	@rm -rf ./*.spec
+
+build: force
 	@echo "building binary files..."
-	@pyinstaller --onefile --distpath ./bin ./src/main.py
+	@pyinstaller --onefile \
+		--distpath ./bin \
+		--add-data "./src/font/zero_liability_please.ttf:font" \
+		--add-data "./src/placeholder_sprite/static.png:placeholder_sprite" \
+		--add-data "./src/placeholder_sprite/cursor.png:placeholder_sprite" \
+		./src/main.py
