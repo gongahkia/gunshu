@@ -1,3 +1,5 @@
+# REVAMP ALL THIS SERVER CODE TO INTEGRATE WITH THE EXISTING DISPLAY
+
 import socket
 import threading
 import json
