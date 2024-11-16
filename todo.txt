@@ -1,9 +1,10 @@
 (A) 2024-11-17 Focus on getting game engine working first with directional movement @engine
 (A) 2024-11-17 Include mouse controls so apart from UP DOWN LEFT RIGHT the player can also face a certain direction 
-(A) 2024-11-17 Make the sprites be able to face 8 directions (N,S,E,W NE, SE, SW, NW) and have a compass display on the top right
+(A) 2024-11-17 Get this fucntionality built in first with testing sprites before incorporating mine
 (A) 2024-11-17 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count
 (A) 2024-11-17 Add art sprites from itch.io (https://itch.io/game-assets/tag-sprites) as placeholder for characters when they first load into the scene, for now add it in display.py and work out getting sounds to work too from itch.io too (https://itch.io/game-assets/tag-sound-effects) @engine
 (A) 2024-11-17 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine
+(A) 2024-11-17 Make the sprites be able to face 8 directions (N,S,E,W NE, SE, SW, NW) and have a compass display on the top right
 (A) 2024-11-17 Get directional sprites working, then get different coloured versions of the player loading in with a shader native to pyagme @engine
 (A) 2024-11-17 Then implement sound @engine
 (A) 2024-11-17 Then implement collisions and let players talk to each other when they're close enough to each other @engine
