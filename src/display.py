@@ -183,7 +183,7 @@ def render_with_8_directions(
 
 # def render_with_8_directions(screen, positions, sprites, animation_states, direction):
 #     """
-#     render the game state with player facing 8 possible directions
+#     render the game state with player facing 8 possible directions, but note this function also rotates the literal sprite around its central axis which I want to avoid
 #     """
 #     screen.fill(WHITE)
 #     for player_id, pos in positions.items():
