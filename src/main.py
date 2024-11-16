@@ -14,12 +14,13 @@ from display import (
 
 # PYGAME VALUES
 
+SCREEN_FPS = 72
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
 # SPRITE VALUES
 
-SPRITE_SHEET_FILEPATH = "./placeholder_sprite/character.png"
+SPRITE_SHEET_FILEPATH = "./placeholder_sprite/static.png"
 SPRITE_WIDTH = 16
 SPRITE_HEIGHT = 24
 
@@ -30,9 +31,9 @@ def main():
     positions = {1: player_pos}
     animation_states = {}
 
-    sprites = load_sprite_sheet(SPRITE_SHEET_FILEPATH, SPRITE_WIDTH, SPRITE_HEIGHT, 40)
+    sprite_sheet = pygame.image.load(SPRITE_SHEET_FILEPATH).convert_alpha()
 
-    if not sprites:
+    if not sprite_sheet:
         print(
             "Error: No sprites loaded from the sprite sheet. Please check the sprite sheet path."
         )
@@ -55,11 +56,15 @@ def main():
         player_pos["x"] = max(0, min(player_pos["x"], SCREEN_WIDTH))
         player_pos["y"] = max(0, min(player_pos["y"], SCREEN_HEIGHT))
 
+        # render_with_8_directions(
+        #     screen, positions, sprites, animation_states, direction
+        # )
+
         render_with_8_directions(
-            screen, positions, sprites, animation_states, direction
+            screen, positions, sprite_sheet, SPRITE_WIDTH, SPRITE_HEIGHT, 40, direction
         )
 
-        clock.tick(30)
+        clock.tick(SCREEN_FPS)
 
     quit_display()
 
