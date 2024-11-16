@@ -100,3 +100,7 @@ Game logic alternatives.
 * [SDL](https://www.libsdl.org/) provides low-level access to graphics, audio, and input for C/C++ developers building custom game engines or simpler 2D games
 * [Cocos2d-x](https://www.cocos.com/en/) is a C++ framework for 2D games, widely used in mobile game development for its cross-platform capabilities
 * [Godot Engine](https://godotengine.org/) is an open-source game engine that supports 2D and 3D development, with native scripting in GDScript, C#, and C++
+
+## Art
+
+* [Pixel-It](https://giventofly.github.io/pixelit/) - Turn any image into pixel art
