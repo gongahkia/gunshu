@@ -27,4 +27,4 @@ config:
 
 build: ./src/server.py
 	@echo "building binary files..."
-	@pyinstaller --onefile --distpath ./bin ./src/server.py
+	@pyinstaller --onefile --distpath ./bin ./src/main.py
