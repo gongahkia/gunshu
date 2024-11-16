@@ -24,6 +24,10 @@ SPRITE_SHEET_FILEPATH = "./placeholder_sprite/static.png"
 SPRITE_WIDTH = 16
 SPRITE_HEIGHT = 24
 
+CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
+CURSOR_SPRITE_WIDTH = 40
+CURSOR_SPRITE_HEIGHT = 40
+
 # FONT VALUES
 
 FONT_FILEPATH = "./font/zero_liability_please.ttf"
@@ -51,6 +55,13 @@ def main():
             "Error: No font loaded from the specified filepath. Please check the font filepath."
         )
         return None
+
+    cursor_sprite = pygame.image.load(CURSOR_SPRITE_FILEPATH).convert_alpha()
+    cursor_sprite = pygame.transform.scale(
+        cursor_sprite, (CURSOR_SPRITE_WIDTH, CURSOR_SPRITE_HEIGHT)
+    )
+    cursor_rect = cursor_sprite.get_rect()
+    pygame.mouse.set_visible(False)
 
     running = True
 
@@ -85,6 +96,13 @@ def main():
                 SCREEN_HEIGHT - debug_surface.get_height() - 10,
             ),
         )
+
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        cursor_rect.topleft = (
+            mouse_x - cursor_rect.width // 2,
+            mouse_y - cursor_rect.height // 2,
+        )
+        screen.blit(cursor_sprite, cursor_rect)
 
         pygame.display.flip()
         clock.tick(SCREEN_FPS)
