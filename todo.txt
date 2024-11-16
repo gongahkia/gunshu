@@ -9,13 +9,22 @@
 (A) 2024-11-17 Then implement sound @engine
 (A) 2024-11-17 Then implement collisions and let players talk to each other when they're close enough to each other @engine
 (A) 2024-11-17 See if there's anyway to implement proximity chat into gunshu @engine
+(A) 2024-11-17 Add in screenshake and other small quality of life updates when there's collisions with enemies @engine
+
 (B) 2024-11-18 There has to be a better way for the server to smartly identify and rename each client that joins, as well as identifying old clients that have already joined, add functionality for this probably with a logbook of existing users, sockets and their IPs but encrypt for PDPA if required @debug
 (B) 2024-11-18 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
 (B) 2024-11-20 Make all of the server-side and client-side functions that create a socket and returns it @feature
 (B) 2024-11-20 Work on testing out server code and allowing up to 6 players to join the server first, consider handling the code like a chatroom for now @feature
-(C) 2024-11-20 Then work on the main game logic and core game loop @future
-(D) 2024-11-20 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @future
-(D) 2024-11-18 Consider making a complete minicraft clone where players can place items down as well @idea
-(E) 2024-11-20 Add details to README.md once available @admin @readme
-(E) 2024-11-20 Add containerisation and deployment with Docker @admin @readme
-(E) 2024-11-20 Add functionality for client-side to initiate closing the game and to automatically close the server socket when there are no clients left @debug
+
+(C) 2024-11-20 Lore-wise, make Gunshu a Hades 3 clone that ties specifically into Japanese mythology, with spirits, yokai and other ghosts into the overall story, ask GPT for help generating ideas if I need help @feature
+(C) 2024-11-20 Use JDH Minecraft's practise of only drawing a two-toned sprite and then using pygame to recolor the sprite for all 6 characters (https://youtu.be/hvLYzISx6dU?si=bYloWsOA0qPxeLnp) @idea 
+(C) 2024-11-20 Keep the player character designs simple blobs but make the monster design sprites detailed and stylized, consider having the background in neutral colors (white and gray) @idea @design 
+(C) 2024-11-20 Emphasize the multiplayer aspect of the game and make it like multiplayer hades or ember knights in terms of having tight interlocking systems with crunchy controls and good feedback and screenshake on attacking @idea 
+(C) 2024-11-18 Consider making a complete minicraft clone where players can place items down as well @idea 
+(C) 2024-11-20 Use waveform generation for rougelite-tier random generation of the terrain @idea 
+(C) 2024-11-20 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @idea 
+(C) 2024-11-20 Consider integrating an LLM to generate natural language-like dialogue for the enemies, NPCs and other characters @feature
+
+(D) 2024-11-20 Add details to README.md once available @admin @readme
+(D) 2024-11-20 Add containerisation and deployment with Docker @admin @readme
+(D) 2024-11-20 Add functionality for client-side to initiate closing the game and to automatically close the server socket when there are no clients left @debug
