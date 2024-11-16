@@ -75,7 +75,7 @@ def main():
         )
 
         fps = int(clock.get_fps())
-        debug_text = f"FPS: {fps}\nPlayer position: {player_pos['x']},{player_pos['y']}\nPlayer direction: {direction.name}"
+        debug_text = f"FPS: {fps} | Position: {player_pos['x']},{player_pos['y']} | Direction: {direction.name}"
         debug_surface = font.render(debug_text, True, (0, 0, 0))
 
         screen.blit(
