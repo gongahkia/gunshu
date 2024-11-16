@@ -1,7 +1,7 @@
 # ----- REQUIRED IMPORTS -----
 
 import pygame
-from helper_functions import (
+from display import (
     init_display,
     handle_input_with_mouse_8_directions,
     load_sprite_frames,

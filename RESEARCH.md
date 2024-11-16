@@ -104,3 +104,4 @@ Game logic alternatives.
 ## Art
 
 * [Pixel-It](https://giventofly.github.io/pixelit/) - Turn any image into pixel art
+* [Images to Sprite Sheet Generator](https://codeshack.io/images-sprite-sheet-generator/) - Self-explanatory
