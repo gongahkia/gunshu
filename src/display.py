@@ -114,7 +114,7 @@ def load_sprite_frames(target_filepath, sprite_size):
     return frames
 
 
-def load_sprite_sheet(target_filepath, frame_width, frame_height, sprite_size):
+def load_sprite_sheet(target_filepath, frame_width, frame_height, output_sprite_size):
     """
     load individual sprite frames from a sprite sheet
     """
@@ -130,7 +130,9 @@ def load_sprite_sheet(target_filepath, frame_width, frame_height, sprite_size):
             frame = sprite_sheet.subsurface(
                 pygame.Rect(x, y, frame_width, frame_height)
             )
-            frame = pygame.transform.scale(frame, (sprite_size, sprite_size))
+            frame = pygame.transform.scale(
+                frame, (output_sprite_size, output_sprite_size)
+            )
             frames.append(frame)
     return frames
 

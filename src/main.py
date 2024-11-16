@@ -12,11 +12,16 @@ from display import (
 
 # ----- PREDEFINED CONSTANTS -----
 
+# PYGAME VALUES
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SPRITE_SHEET_FILEPATH = "path/to/sprites"
-SPRITE_WIDTH = 64
-SPRITE_HEIGHT = 64
+
+# SPRITE VALUES
+
+SPRITE_SHEET_FILEPATH = "./placeholder_sprite/character.png"
+SPRITE_WIDTH = 16
+SPRITE_HEIGHT = 24
 
 
 def main():
