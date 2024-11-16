@@ -1,0 +1,17 @@
+(A) 2024-11-17 Focus on getting game engine working first with directional movement @engine
+(A) 2024-11-17 Add art sprites from itch.io (https://itch.io/game-assets/tag-sprites) as placeholder for characters when they first load into the scene, for now add it in display.py and work out getting sounds to work too from itch.io too (https://itch.io/game-assets/tag-sound-effects) @engine
+(A) 2024-11-17 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine
+(A) 2024-11-17 Get directional sprites working, then get different coloured versions of the player loading in with a shader native to pyagme @engine
+(A) 2024-11-17 Then implement sound @engine
+(A) 2024-11-17 Then implement collisions and let players talk to each other when they're close enough to each other @engine
+(A) 2024-11-17 See if there's anyway to implement proximity chat into gunshu @engine
+(B) 2024-11-15 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
+(B) 2024-11-16 Consider making a complete minicraft clone where players can place items down as well @idea
+(B) 2024-11-15 Make all of the server-side and client-side functions that create a socket and returns it @feature
+(C) 2024-11-15 Work on testing out server code and allowing up to 6 players to join the server first, consider handling the code like a chatroom for now @feature
+(D) 2024-11-15 Then work on the main game logic and core game loop @future
+(E) 2024-11-15 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @future
+(F) 2024-11-15 Unprivate this repo when there is substantial progress @admin
+(G) 2024-11-15 Add details to README.md once available @admin @readme
+(H) 2024-11-15 Add containerisation and deployment with Docker @admin @readme
+(I) 2024-11-13 Add functionality for client-side to initiate closing the game and to automatically close the server socket when there are no clients left @debug
