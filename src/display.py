@@ -114,6 +114,27 @@ def load_sprite_frames(target_filepath, sprite_size):
     return frames
 
 
+def load_sprite_sheet(target_filepath, frame_width, frame_height, sprite_size):
+    """
+    load individual sprite frames from a sprite sheet
+    """
+    try:
+        sprite_sheet = pygame.image.load(target_filepath).convert_alpha()
+    except pygame.error as e:
+        print(f"Error loading sprite sheet: {e}")
+        return []
+    sheet_width, sheet_height = sprite_sheet.get_size()
+    frames = []
+    for y in range(0, sheet_height, frame_height):
+        for x in range(0, sheet_width, frame_width):
+            frame = sprite_sheet.subsurface(
+                pygame.Rect(x, y, frame_width, frame_height)
+            )
+            frame = pygame.transform.scale(frame, (sprite_size, sprite_size))
+            frames.append(frame)
+    return frames
+
+
 def render_with_8_directions(screen, positions, sprites, animation_states, direction):
     """
     render the game state with player facing 8 possible directions
