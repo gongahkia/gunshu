@@ -1,6 +1,7 @@
 # ----- REQUIRED IMPORTS -----
 
 import pygame
+import math
 from display import (
     init_display,
     handle_input_with_mouse_8_directions,
@@ -132,7 +133,7 @@ def main():
             print(remaining_time)
 
         fps = int(clock.get_fps())
-        debug_text = f"FPS: {fps} | Position: {player_pos['x']},{player_pos['y']} | Direction: {direction.name}"
+        debug_text = f"FPS: {fps} | Position: {math.floor(player_pos['x'])},{math.floor(player_pos['y'])} | Direction: {direction.name}"
         debug_surface = font.render(debug_text, True, (0, 0, 0))
 
         screen.blit(

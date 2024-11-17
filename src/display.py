@@ -3,7 +3,6 @@
 import pygame
 from enum import Enum
 import math
-import time
 
 # ----- PREDEFINED VALUES -----
 
