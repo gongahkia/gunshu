@@ -18,6 +18,7 @@ SCREEN_HEIGHT = 600
 
 PLAYER_SPRITE_SIZE = 40
 PLAYER_SPEED = 15
+PLAYER_BLINK_DISTANCE = 20
 
 # PLAYER CONTROL ENUM
 
@@ -80,20 +81,37 @@ def handle_input_with_mouse_8_directions(player_pos):
     """
     handle player input and mouse position to update movement and 8 cardinal directions
     """
+
     dx, dy = 0, 0
     direction = Direction.STATIC
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        dx -= PLAYER_SPEED
-    if keys[pygame.K_RIGHT]:
-        dx += PLAYER_SPEED
-    if keys[pygame.K_UP]:
-        dy -= PLAYER_SPEED
-    if keys[pygame.K_DOWN]:
-        dy += PLAYER_SPEED
     mouse_pos = pygame.mouse.get_pos()
     direction = calculate_direction(player_pos, mouse_pos)
-    return dx, dy, direction
+    player_blink = False
+
+    if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+        dx -= PLAYER_SPEED
+    if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+        dx += PLAYER_SPEED
+    if keys[pygame.K_UP] or keys[pygame.K_w]:
+        dy -= PLAYER_SPEED
+    if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+        dy += PLAYER_SPEED
+
+    if keys[pygame.K_LSHIFT] or keys[pygame.K_SPACE]:
+        player_blink = True
+        blink_vector = pygame.math.Vector2(
+            mouse_pos[0] - player_pos[0], mouse_pos[1] - player_pos[1]
+        )
+        if blink_vector.length() > 0:
+            blink_vector = blink_vector.normalize() * PLAYER_BLINK_DISTANCE
+            player_pos = [
+                player_pos[0] + blink_vector.x,
+                player_pos[1] + blink_vector.y,
+            ]
+            dx, dy = 0, 0
+
+    return dx, dy, direction, player_blink, player_pos
 
 
 def load_sprite_frames(target_filepath, sprite_size):
