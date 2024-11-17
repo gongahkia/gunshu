@@ -89,7 +89,7 @@ def main():
             remaining_time,
             last_blink_time,
             blink_target_pos,
-            inventory_open_toggle
+            inventory_open_toggle,
         ) = handle_input_with_mouse_8_directions(
             [player_pos["x"], player_pos["y"]], last_blink_time, inventory_open
         )
@@ -98,7 +98,7 @@ def main():
 
         if inventory_open:
 
-            screen.fill((50, 50, 50, 128)) 
+            screen.fill((50, 50, 50, 128))
             render_player_inventory(screen, font)
 
         else:
@@ -112,7 +112,13 @@ def main():
             player_pos["y"] = max(0, min(player_pos["y"], SCREEN_HEIGHT))
 
             render_with_8_directions(
-                screen, positions, sprite_sheet, SPRITE_WIDTH, SPRITE_HEIGHT, 40, direction
+                screen,
+                positions,
+                sprite_sheet,
+                SPRITE_WIDTH,
+                SPRITE_HEIGHT,
+                40,
+                direction,
             )
 
             PLAYER_BLINK_DISTANCE = 200
@@ -120,7 +126,8 @@ def main():
 
             blink_indicator_radius = 10
             max_distance_vector = pygame.math.Vector2(
-                blink_target_pos[0] - player_pos["x"], blink_target_pos[1] - player_pos["y"]
+                blink_target_pos[0] - player_pos["x"],
+                blink_target_pos[1] - player_pos["y"],
             )
             if max_distance_vector.length() > 0:
                 max_distance_vector = (
