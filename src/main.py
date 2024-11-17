@@ -25,9 +25,14 @@ SPRITE_SHEET_FILEPATH = "./placeholder_sprite/white_static.png"
 SPRITE_WIDTH = 16
 SPRITE_HEIGHT = 24
 
-CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
-CURSOR_SPRITE_WIDTH = 40
-CURSOR_SPRITE_HEIGHT = 40
+BLINK_INACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_inactive.png"
+BLINK_ACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_active.png"
+BLINK_SPRITE_WIDTH = 40
+BLINK_SPRITE_HEIGHT = 40
+
+# CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
+# CURSOR_SPRITE_WIDTH = 40
+# CURSOR_SPRITE_HEIGHT = 40
 
 # FONT VALUES
 
@@ -57,11 +62,11 @@ def main():
         )
         return None
 
-    cursor_sprite = pygame.image.load(CURSOR_SPRITE_FILEPATH).convert_alpha()
-    cursor_sprite = pygame.transform.scale(
-        cursor_sprite, (CURSOR_SPRITE_WIDTH, CURSOR_SPRITE_HEIGHT)
-    )
-    cursor_rect = cursor_sprite.get_rect()
+    # cursor_sprite = pygame.image.load(CURSOR_SPRITE_FILEPATH).convert_alpha()
+    # cursor_sprite = pygame.transform.scale(
+    #     cursor_sprite, (CURSOR_SPRITE_WIDTH, CURSOR_SPRITE_HEIGHT)
+    # )
+    # cursor_rect = cursor_sprite.get_rect()
     pygame.mouse.set_visible(False)
 
     running = True
@@ -115,20 +120,46 @@ def main():
             player_pos["y"] + max_distance_vector.y,
         )
         if remaining_time >= PLAYER_BLINK_COOLDOWN_TIME:
-            green_blink_indicator_color = (0, 255, 0)
-            pygame.draw.circle(
-                screen,
-                green_blink_indicator_color,
-                blink_indicator_pos,
-                blink_indicator_radius,
+            # green_blink_indicator_color = (0, 255, 0)
+            # pygame.draw.circle(
+            #     screen,
+            #     green_blink_indicator_color,
+            #     blink_indicator_pos,
+            #     blink_indicator_radius,
+            # )
+            active_blink_sprite = pygame.image.load(
+                BLINK_ACTIVE_SPRITE_FILEPATH
+            ).convert_alpha()
+            active_blink_sprite = pygame.transform.scale(
+                active_blink_sprite, (BLINK_SPRITE_WIDTH, BLINK_SPRITE_HEIGHT)
+            )
+            screen.blit(
+                active_blink_sprite,
+                (
+                    blink_indicator_pos[0] - blink_indicator_radius,
+                    blink_indicator_pos[1] - blink_indicator_radius,
+                ),
             )
         else:
-            red_blink_indicator_color = (255, 0, 0)
-            pygame.draw.circle(
-                screen,
-                red_blink_indicator_color,
-                blink_indicator_pos,
-                blink_indicator_radius,
+            # red_blink_indicator_color = (255, 0, 0)
+            # pygame.draw.circle(
+            #     screen,
+            #     red_blink_indicator_color,
+            #     blink_indicator_pos,
+            #     blink_indicator_radius,
+            # )
+            inactive_blink_sprite = pygame.image.load(
+                BLINK_INACTIVE_SPRITE_FILEPATH
+            ).convert_alpha()
+            inactive_blink_sprite = pygame.transform.scale(
+                inactive_blink_sprite, (BLINK_SPRITE_WIDTH, BLINK_SPRITE_HEIGHT)
+            )
+            screen.blit(
+                inactive_blink_sprite,
+                (
+                    blink_indicator_pos[0] - blink_indicator_radius,
+                    blink_indicator_pos[1] - blink_indicator_radius,
+                ),
             )
             print(remaining_time)
 
@@ -144,12 +175,12 @@ def main():
             ),
         )
 
-        mouse_x, mouse_y = pygame.mouse.get_pos()
-        cursor_rect.topleft = (
-            mouse_x - cursor_rect.width // 2,
-            mouse_y - cursor_rect.height // 2,
-        )
-        screen.blit(cursor_sprite, cursor_rect)
+        # mouse_x, mouse_y = pygame.mouse.get_pos()
+        # cursor_rect.topleft = (
+        #     mouse_x - cursor_rect.width // 2,
+        #     mouse_y - cursor_rect.height // 2,
+        # )
+        # screen.blit(cursor_sprite, cursor_rect)
 
         pygame.display.flip()
         clock.tick(SCREEN_FPS)
