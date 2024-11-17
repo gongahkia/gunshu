@@ -24,6 +24,7 @@
 (C) 2024-11-20 Use waveform generation for rougelite-tier random generation of the terrain @idea 
 (C) 2024-11-20 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @idea 
 (C) 2024-11-20 Consider integrating an LLM to generate natural language-like dialogue for the enemies, NPCs and other characters @feature
+(C) 2024-11-20 Add additional cutscene functionality and consider creating a function that makes creating cutscenes easier, additionally consider whether i want the cutscene to run client-side or server-side @idea @feature
 
 (D) 2024-11-20 Add details to README.md once available @admin @readme
 (D) 2024-11-20 Add containerisation and deployment with Docker @admin @readme
