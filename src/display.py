@@ -91,6 +91,7 @@ def handle_input_with_mouse_8_directions(player_pos, last_blink_time):
     direction = calculate_direction(player_pos, mouse_pos)
     player_blink = False
     current_time = pygame.time.get_ticks() / 1000
+    remaining_time = current_time - last_blink_time
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         dx -= PLAYER_SPEED
@@ -102,7 +103,7 @@ def handle_input_with_mouse_8_directions(player_pos, last_blink_time):
         dy += PLAYER_SPEED
 
     if keys[pygame.K_LSHIFT] or keys[pygame.K_SPACE]:
-        if current_time - last_blink_time >= PLAYER_BLINK_COOLDOWN_TIME:
+        if remaining_time >= PLAYER_BLINK_COOLDOWN_TIME:
             print("player blinking...")
             player_blink = True
             blink_vector = pygame.math.Vector2(
@@ -120,7 +121,16 @@ def handle_input_with_mouse_8_directions(player_pos, last_blink_time):
             print("player cannot blink as blink is still cooling down...")
             pass
 
-    return dx, dy, direction, player_blink, player_pos, last_blink_time
+    return (
+        dx,
+        dy,
+        direction,
+        player_blink,
+        player_pos,
+        remaining_time,
+        last_blink_time,
+        mouse_pos,
+    )
 
 
 def load_sprite_frames(target_filepath, sprite_size):

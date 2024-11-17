@@ -72,10 +72,17 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        dx, dy, direction, player_blink, new_player_pos, last_blink_time = (
-            handle_input_with_mouse_8_directions(
-                [player_pos["x"], player_pos["y"]], last_blink_time
-            )
+        (
+            dx,
+            dy,
+            direction,
+            player_blink,
+            new_player_pos,
+            remaining_time,
+            last_blink_time,
+            blink_target_pos,
+        ) = handle_input_with_mouse_8_directions(
+            [player_pos["x"], player_pos["y"]], last_blink_time
         )
 
         if player_blink:
@@ -90,6 +97,39 @@ def main():
         render_with_8_directions(
             screen, positions, sprite_sheet, SPRITE_WIDTH, SPRITE_HEIGHT, 40, direction
         )
+
+        PLAYER_BLINK_DISTANCE = 200
+        PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
+
+        blink_indicator_radius = 10
+        max_distance_vector = pygame.math.Vector2(
+            blink_target_pos[0] - player_pos["x"], blink_target_pos[1] - player_pos["y"]
+        )
+        if max_distance_vector.length() > 0:
+            max_distance_vector = (
+                max_distance_vector.normalize() * PLAYER_BLINK_DISTANCE
+            )
+        blink_indicator_pos = (
+            player_pos["x"] + max_distance_vector.x,
+            player_pos["y"] + max_distance_vector.y,
+        )
+        if remaining_time >= PLAYER_BLINK_COOLDOWN_TIME:
+            green_blink_indicator_color = (0, 255, 0)
+            pygame.draw.circle(
+                screen,
+                green_blink_indicator_color,
+                blink_indicator_pos,
+                blink_indicator_radius,
+            )
+        else:
+            red_blink_indicator_color = (255, 0, 0)
+            pygame.draw.circle(
+                screen,
+                red_blink_indicator_color,
+                blink_indicator_pos,
+                blink_indicator_radius,
+            )
+            print(remaining_time)
 
         fps = int(clock.get_fps())
         debug_text = f"FPS: {fps} | Position: {player_pos['x']},{player_pos['y']} | Direction: {direction.name}"
