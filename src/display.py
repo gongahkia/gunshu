@@ -3,6 +3,7 @@
 import pygame
 from enum import Enum
 import math
+import time
 
 # ----- PREDEFINED VALUES -----
 
@@ -18,7 +19,8 @@ SCREEN_HEIGHT = 600
 
 PLAYER_SPRITE_SIZE = 40
 PLAYER_SPEED = 15
-PLAYER_BLINK_DISTANCE = 80
+PLAYER_BLINK_DISTANCE = 200
+PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
 
 # PLAYER CONTROL ENUM
 
@@ -77,7 +79,7 @@ def calculate_direction(player_pos, mouse_pos):
         return Direction.NORTHEAST
 
 
-def handle_input_with_mouse_8_directions(player_pos):
+def handle_input_with_mouse_8_directions(player_pos, last_blink_time):
     """
     handle player input and mouse position to update movement and 8 cardinal directions
     """
@@ -88,6 +90,7 @@ def handle_input_with_mouse_8_directions(player_pos):
     mouse_pos = pygame.mouse.get_pos()
     direction = calculate_direction(player_pos, mouse_pos)
     player_blink = False
+    current_time = pygame.time.get_ticks() / 1000
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         dx -= PLAYER_SPEED
@@ -99,19 +102,25 @@ def handle_input_with_mouse_8_directions(player_pos):
         dy += PLAYER_SPEED
 
     if keys[pygame.K_LSHIFT] or keys[pygame.K_SPACE]:
-        player_blink = True
-        blink_vector = pygame.math.Vector2(
-            mouse_pos[0] - player_pos[0], mouse_pos[1] - player_pos[1]
-        )
-        if blink_vector.length() > 0:
-            blink_vector = blink_vector.normalize() * PLAYER_BLINK_DISTANCE
-            player_pos = [
-                player_pos[0] + blink_vector.x,
-                player_pos[1] + blink_vector.y,
-            ]
-            dx, dy = 0, 0
+        if current_time - last_blink_time >= PLAYER_BLINK_COOLDOWN_TIME:
+            print("player blinking...")
+            player_blink = True
+            blink_vector = pygame.math.Vector2(
+                mouse_pos[0] - player_pos[0], mouse_pos[1] - player_pos[1]
+            )
+            if blink_vector.length() > 0:
+                blink_vector = blink_vector.normalize() * PLAYER_BLINK_DISTANCE
+                player_pos = [
+                    player_pos[0] + blink_vector.x,
+                    player_pos[1] + blink_vector.y,
+                ]
+                dx, dy = 0, 0
+                last_blink_time = current_time
+        else:
+            print("player cannot blink as blink is still cooling down...")
+            pass
 
-    return dx, dy, direction, player_blink, player_pos
+    return dx, dy, direction, player_blink, player_pos, last_blink_time
 
 
 def load_sprite_frames(target_filepath, sprite_size):

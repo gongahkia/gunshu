@@ -64,6 +64,7 @@ def main():
     pygame.mouse.set_visible(False)
 
     running = True
+    last_blink_time = 0
 
     while running:
 
@@ -71,8 +72,10 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        dx, dy, direction, player_blink, new_player_pos = (
-            handle_input_with_mouse_8_directions([player_pos["x"], player_pos["y"]])
+        dx, dy, direction, player_blink, new_player_pos, last_blink_time = (
+            handle_input_with_mouse_8_directions(
+                [player_pos["x"], player_pos["y"]], last_blink_time
+            )
         )
 
         if player_blink:
