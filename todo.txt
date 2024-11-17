@@ -1,5 +1,4 @@
-(A) 2024-11-17 Focus on getting game engine working first with directional movement @engine
-(A) 2024-11-17 Add a teleport sprint mechanic similar to hyperlight drifter where the player teleports a set distance in the direction the cursor is pointing and the mouse cursor becomes an eye, similar to Dishonoured, add screenshake and vfx as well @engine
+(A) 2024-11-17 Continue tweaking BLINK moveset so the mouse cursor becomes an eye, similar to Dishonoured and add screenshake and vfx as well @engine
 (A) 2024-11-17 Include mouse controls so apart from UP DOWN LEFT RIGHT the player can also face a certain direction 
 (A) 2024-11-17 Get this fucntionality built in first with testing sprites before incorporating mine
 (A) 2024-11-17 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count
