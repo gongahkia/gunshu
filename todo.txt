@@ -1,6 +1,6 @@
 (A) 2024-11-17 Add art sprites from itch.io (https://itch.io/game-assets/tag-sprites) as placeholder for characters when they first load into the scene, for now add it in display.py and work out getting sounds to work too from itch.io too (https://itch.io/game-assets/tag-sound-effects) @engine
 (A) 2024-11-17 Integrate an inventory system where the player's inventory is shown on the top left of the screen with little other context @feature
-(A) 2024-11-17 Need to debug the cooldown from the dash feature so that opening the inventory doesn't allow the user to halt the blink cooldown, or allow the inventory to only be opened outside combat in the shop areas @feature
+(A) 2024-11-17 Need to debug the cooldown from the dash feature so that opening the inventory halts the blink timer cooldown from running down, or allow the inventory to only be opened outside combat in the shop areas to circumvent this issue @feature
 (A) 2024-11-17 Add an intuitive HUD that shows the player's active powerups on the top-left of the screen with minimal words @engine
 (A) 2024-11-17 Get all this fucntionality built in first with testing sprites before incorporating mine
 (A) 2024-11-17 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine

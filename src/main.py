@@ -10,7 +10,7 @@ from display import (
     render_with_8_directions,
     quit_display,
 )
-from inventory import render_player_inventory
+from inventory import render_player_inventory, handle_inventory_click
 
 # ----- PREDEFINED CONSTANTS -----
 
@@ -99,7 +99,18 @@ def main():
         if inventory_open:
 
             screen.fill((50, 50, 50, 128))
-            render_player_inventory(screen, font)
+            inventory_positions, armour_positions = render_player_inventory(
+                screen, font
+            )
+            if pygame.mouse.get_pressed()[0]:
+                mouse_pos = pygame.mouse.get_pos()
+                selected_inventory_box, selected_armor_slot = handle_inventory_click(
+                    screen, mouse_pos, inventory_positions, armour_positions
+                )
+                if selected_inventory_box is not None:
+                    print(f"inventory box {selected_inventory_box} clicked")
+                if selected_armor_slot is not None:
+                    print(f"armor slot {selected_armor_slot} clicked")
 
         else:
             if player_blink:
