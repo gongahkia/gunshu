@@ -1,10 +1,7 @@
-(A) 2024-11-17 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
-(A) 2024-11-17 Include mouse controls so apart from UP DOWN LEFT RIGHT the player can also face a certain direction 
-(A) 2024-11-17 Get this fucntionality built in first with testing sprites before incorporating mine
-(A) 2024-11-17 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count
+(A) 2024-11-17 Add art sprites from itch.io (https://itch.io/game-assets/tag-sprites) as placeholder for characters when they first load into the scene, for now add it in display.py and work out getting sounds to work too from itch.io too (https://itch.io/game-assets/tag-sound-effects) @engine
 (A) 2024-11-17 Integrate an inventory system where the player's inventory is shown on the top left of the screen with little other context @feature
 (A) 2024-11-17 Add an intuitive HUD that shows the player's active powerups on the top-left of the screen with minimal words @engine
-(A) 2024-11-17 Add art sprites from itch.io (https://itch.io/game-assets/tag-sprites) as placeholder for characters when they first load into the scene, for now add it in display.py and work out getting sounds to work too from itch.io too (https://itch.io/game-assets/tag-sound-effects) @engine
+(A) 2024-11-17 Get all this fucntionality built in first with testing sprites before incorporating mine
 (A) 2024-11-17 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine
 (A) 2024-11-17 Make the sprites be able to face 8 directions (N,S,E,W NE, SE, SW, NW) and have a compass display on the top right
 (A) 2024-11-17 Get directional sprites working, then get different coloured versions of the player loading in with a shader native to pyagme @engine
@@ -15,7 +12,9 @@
 (A) 2024-11-17 Add a moving camera that follows each player and snaps to a given dungeon room similar to the old legend of zelda games for now, also to facilitate easier level generation @engine
 (A) 2024-11-17 Add in power ups with a tatoo-based system where the player's arms and legs can be covered with various insignia (hanya masks, etc) @engine
 (A) 2024-11-17 Add particle effects for everything @engine
+(A) 2024-11-17 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
 
+(B) 2024-11-18 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count
 (B) 2024-11-18 Add a simple drag and drop element system that I can use to create levels with or implement this as a level editing system @feature
 (B) 2024-11-18 There has to be a better way for the server to smartly identify and rename each client that joins, as well as identifying old clients that have already joined, add functionality for this probably with a logbook of existing users, sockets and their IPs but encrypt for PDPA if required @debug
 (B) 2024-11-18 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
