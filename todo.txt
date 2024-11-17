@@ -14,7 +14,8 @@
 (A) 2024-11-17 Add particle effects for everything @engine
 (A) 2024-11-17 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
 
-(B) 2024-11-18 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count
+(B) 2024-11-18 Inlude a multiplayer lobby and entry screen similar to JDH's wizard game here (https://youtu.be/b5ovU9xeQ7c?si=tCMMtktlJ0ZiCKJs) covered in the last few minutes of the video @feature
+(B) 2024-11-18 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count @feature
 (B) 2024-11-18 Add a simple drag and drop element system that I can use to create levels with or implement this as a level editing system @feature
 (B) 2024-11-18 There has to be a better way for the server to smartly identify and rename each client that joins, as well as identifying old clients that have already joined, add functionality for this probably with a logbook of existing users, sockets and their IPs but encrypt for PDPA if required @debug
 (B) 2024-11-18 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
