@@ -9,8 +9,8 @@ from display import (
     load_sprite_sheet,
     render_with_8_directions,
     quit_display,
-    render_player_inventory,
 )
+from inventory import render_player_inventory
 
 # ----- PREDEFINED CONSTANTS -----
 
