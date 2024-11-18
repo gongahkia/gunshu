@@ -1,29 +1,31 @@
-(A) 2024-11-18 Move the inventory controls code to be within inventory.py as well @refactor
 (A) 2024-11-18 Move all existing blink code to be within blink.py as well @refactor
+(A) 2024-11-18 Move the inventory controls code to be within inventory.py as well @refactor
+(A) 2024-11-18 Consider moving rendering of the inventory to an entirely different function so the dragging can be debugged in isolation @debug
+(A) 2024-11-18 Debug the inventory dragging system where currently items can't be dragged from the inventory to armour slots and a weird blue square artifact appears @debug
 
-(A) 2024-11-17 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
-(A) 2024-11-17 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
-(A) 2024-11-17 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
-(A) 2024-11-17 Then add the logic for a HUD on the top-right where the player can see their existing buffs or boons and their icons on the top-right @engine
-(A) 2024-11-17 Add an intuitive HUD that shows the player's active powerups on the top-left of the screen with minimal words @engine
-(A) 2024-11-17 Make the sprites be able to face 8 directions (N,S,E,W NE, SE, SW, NW) and have a compass display on the top right
-(A) 2024-11-17 Get directional sprites working, then get different coloured versions of the player loading in with a shader native to pyagme @engine
-(A) 2024-11-17 Then implement collisions and let players talk to each other when they're close enough to each other @engine
-(A) 2024-11-17 See if there's anyway to implement proximity chat into gunshu @engine
-(A) 2024-11-17 Then implement sound @engine
-(A) 2024-11-17 Add in screenshake and other small quality of life updates when there's collisions with enemies @engine
-(A) 2024-11-17 Add a moving camera that follows each player and snaps to a given dungeon room similar to the old legend of zelda games for now, also to facilitate easier level generation @engine
-(A) 2024-11-17 Add in power ups with a tatoo-based system where the player's arms and legs can be covered with various insignia (hanya masks, etc) @engine
-(A) 2024-11-17 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
-(A) 2024-11-17 Make the code more modular and allow all values like screen size, player metadata to be specified within a config.json that is serialised upon game launch so that properties can be easily tweaked in subsequent powerups @refactor
-(A) 2024-11-17 Need to debug the cooldown from the blink feature so that opening the inventory halts the blink timer cooldown from running down, or allow the inventory to only be opened outside combat in the shop areas to circumvent this issue @feature
+(A) 2024-11-19 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
+(A) 2024-11-19 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
+(A) 2024-11-19 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
+(A) 2024-11-19 Then add the logic for a HUD on the top-right where the player can see their existing buffs or boons and their icons on the top-right @engine
+(A) 2024-11-19 Add an intuitive HUD that shows the player's active powerups on the top-left of the screen with minimal words @engine
+(A) 2024-11-19 Make the sprites be able to face 8 directions (N,S,E,W NE, SE, SW, NW) and have a compass display on the top right
+(A) 2024-11-19 Get directional sprites working, then get different coloured versions of the player loading in with a shader native to pyagme @engine
+(A) 2024-11-19 Then implement collisions and let players talk to each other when they're close enough to each other @engine
+(A) 2024-11-19 See if there's anyway to implement proximity chat into gunshu @engine
+(A) 2024-11-19 Then implement sound @engine
+(A) 2024-11-19 Add in screenshake and other small quality of life updates when there's collisions with enemies @engine
+(A) 2024-11-19 Add a moving camera that follows each player and snaps to a given dungeon room similar to the old legend of zelda games for now, also to facilitate easier level generation @engine
+(A) 2024-11-19 Add in power ups with a tatoo-based system where the player's arms and legs can be covered with various insignia (hanya masks, etc) @engine
+(A) 2024-11-19 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
+(A) 2024-11-19 Make the code more modular and allow all values like screen size, player metadata to be specified within a config.json that is serialised upon game launch so that properties can be easily tweaked in subsequent powerups @refactor
+(A) 2024-11-19 Need to debug the cooldown from the blink feature so that opening the inventory halts the blink timer cooldown from running down, or allow the inventory to only be opened outside combat in the shop areas to circumvent this issue @feature
 
-(B) 2024-11-18 Add function that deserializes level data from a json that contains metadata and other specifications so levels can be saved as jsons @engine
-(B) 2024-11-18 Add a map-builder that runs seperate from the game so that creating maps is easier for me and for other players if they want to use it @engine
-(B) 2024-11-18 If I have a level deserializing function, consider writing a serializing function that will then convert generated maps from the map maker into a json @engine
-(B) 2024-11-18 Implement naturalistic world and level generation by exploring different methods, wave function collapse, pearlin noise, and other methods like miziziz and enter the gungeon's approach @engine
+(B) 2024-11-20 Add function that deserializes level data from a json that contains metadata and other specifications so levels can be saved as jsons @engine
+(B) 2024-11-20 Add a map-builder that runs seperate from the game so that creating maps is easier for me and for other players if they want to use it @engine
+(B) 2024-11-20 If I have a level deserializing function, consider writing a serializing function that will then convert generated maps from the map maker into a json @engine
+(B) 2024-11-20 Implement naturalistic world and level generation by exploring different methods, wave function collapse, pearlin noise, and other methods like miziziz and enter the gungeon's approach @engine
 
-(B) 2024-11-20 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine
+(C) 2024-11-20 Work out how to integrate movement of the player and user-defined controls within display.py into the rest of the client-server code @feature @engine
 (C) 2024-11-20 After integrating multiplayer, the camera should follow each player around but the server should be able to track which room each player is in and toggle between all active players, so that when the actual game is up dead players can watch gameplay of players still alive @feature
 (C) 2024-11-20 Integrate an inventory system with the lore to give a reason for why player tatoos give him abilities @feature
 (C) 2024-11-20 Inlude a multiplayer lobby and entry screen similar to JDH's wizard game here (https://youtu.be/b5ovU9xeQ7c?si=tCMMtktlJ0ZiCKJs) covered in the last few minutes of the video @feature
