@@ -12,7 +12,13 @@ from display import (
 from player_input import (
     handle_input_with_mouse_8_directions,
 )
-from inventory import render_player_inventory, handle_inventory_click
+from inventory import (
+    render_player_inventory,
+    handle_inventory_click,
+    move_item_to_armour,
+    move_item_to_inventory,
+    render_dragged_item,
+)
 
 # ----- PREDEFINED CONSTANTS -----
 
@@ -112,7 +118,7 @@ def main():
             if pygame.mouse.get_pressed()[0]:
                 if not dragging_item:
                     mouse_pos = pygame.mouse.get_pos()
-                    selected_inventory_box, selected_armor_slot = (
+                    selected_inventory_box, selected_armour_slot = (
                         handle_inventory_click(
                             screen, mouse_pos, inventory_positions, armour_positions
                         )
@@ -122,21 +128,24 @@ def main():
                         dragged_item = selected_inventory_box
                         drag_start_pos = "inventory"
                         print(f"inventory box {selected_inventory_box} clicked")
-                    elif selected_armor_slot is not None:
+                    elif selected_armour_slot is not None:
                         dragging_item = True
-                        dragged_item = selected_armor_slot
-                        drag_start_pos = "armor"
-                        print(f"armor slot {selected_armor_slot} clicked")
+                        dragged_item = selected_armour_slot
+                        drag_start_pos = "armour"
+                        print(f"armour slot {selected_armour_slot} clicked")
                     else:
                         pass
                 elif dragging_item:
                     dragging_item = False
-                    dropped_inventory_box, dropped_armor_slot = handle_inventory_click(
-                        screen, mouse_pos, inventory_positions, armor_positions
+                    dropped_inventory_box, dropped_armour_slot = handle_inventory_click(
+                        screen, mouse_pos, inventory_positions, armour_positions
                     )
-                    if drag_start_pos == "inventory" and dropped_armor_slot is not None:
-                        move_item_to_armor(dragged_item, dropped_armor_slot)
-                    elif drag_start_pos == "armor" and dropped_armor_slot is None:
+                    if (
+                        drag_start_pos == "inventory"
+                        and dropped_armour_slot is not None
+                    ):
+                        move_item_to_armour(dragged_item, dropped_armour_slot)
+                    elif drag_start_pos == "armour" and dropped_armour_slot is None:
                         move_item_to_inventory(dragged_item, dropped_inventory_box)
                 else:
                     pass
@@ -145,8 +154,8 @@ def main():
                 render_dragged_item(
                     screen, dragged_item, mouse_pos, inventory_positions
                 )
-            elif dragging_item and drag_start_pos == "armor":
-                render_dragged_item(screen, dragged_item, mouse_pos, armor_positions)
+            elif dragging_item and drag_start_pos == "armour":
+                render_dragged_item(screen, dragged_item, mouse_pos, armour_positions)
 
         else:
             if player_blink:
