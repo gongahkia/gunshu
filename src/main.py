@@ -4,11 +4,13 @@ import pygame
 import math
 from display import (
     init_display,
-    handle_input_with_mouse_8_directions,
-    load_sprite_frames,
-    load_sprite_sheet,
     render_with_8_directions,
     quit_display,
+    load_sprite_frames,
+    load_sprite_sheet,
+)
+from player_input import (
+    handle_input_with_mouse_8_directions,
 )
 from inventory import render_player_inventory, handle_inventory_click
 
