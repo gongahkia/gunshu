@@ -1,9 +1,11 @@
 (A) 2024-11-18 Move all existing blink code to be within blink.py as well @refactor
+(A) 2024-11-19 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
+(A) 2024-11-19 Add a pickups system and allow the player to first pickup items to begin with with a simplified inventory system rewritten from the groundup @engine
+
 (A) 2024-11-18 Move the inventory controls code to be within inventory.py as well @refactor
 (A) 2024-11-18 Consider moving rendering of the inventory to an entirely different function so the dragging can be debugged in isolation @debug
 (A) 2024-11-18 Debug the inventory dragging system where currently items can't be dragged from the inventory to armour slots and a weird blue square artifact appears @debug
 
-(A) 2024-11-19 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 (A) 2024-11-19 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
 (A) 2024-11-19 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
 (A) 2024-11-19 Then add the logic for a HUD on the top-right where the player can see their existing buffs or boons and their icons on the top-right @engine
