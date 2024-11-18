@@ -20,6 +20,9 @@ INVENTORY_MARGIN = 10
 ARMOR_SLOT_SIZE = 60
 ARMOR_SLOT_PADDING = 20
 
+INVENTORY_ITEMS_ARRAY = [None] * (INVENTORY_GRID_SIZE**2)
+ARMOR_SLOTS_ARRAY = [None] * 3
+
 # ----- INVENTORY LOGIC -----
 
 
@@ -73,3 +76,42 @@ def handle_inventory_click(screen, mouse_pos, inventory_positions, armor_positio
             selected_armor_slot = i
             pygame.draw.rect(screen, (255, 255, 0), rect, 3)
     return selected_inventory_box, selected_armor_slot
+
+
+def move_item_to_armor(inventory_index, armor_index):
+    """
+    move an item from the inventory to an armor slot
+    """
+    global INVENTORY_ITEMS_ARRAY, ARMOR_SLOTS_ARRAY
+    if INVENTORY_ITEMS_ARRAY[inventory_index]:
+        ARMOR_SLOTS_ARRAY[armor_index] = INVENTORY_ITEMS_ARRAY[inventory_index]
+        INVENTORY_ITEMS_ARRAY[inventory_index] = None
+
+
+def move_item_to_inventory(armor_index, inventory_index):
+    """
+    move an item from an armor slot back to the inventory
+    """
+    global INVENTORY_ITEMS_ARRAY, ARMOR_SLOTS_ARRAY
+    if ARMOR_SLOTS_ARRAY[armor_index]:
+        INVENTORY_ITEMS_ARRAY[inventory_index] = ARMOR_SLOTS_ARRAY[armor_index]
+        ARMOR_SLOTS_ARRAY[armor_index] = None
+
+
+def render_dragged_item(screen, item_index, mouse_pos, positions):
+    """
+    render the dragged item at the mouse position
+    """
+    if item_index is None:
+        return
+    rect = positions[item_index]
+    pygame.draw.rect(
+        screen,
+        BLUE,
+        (
+            mouse_pos[0] - rect.width // 2,
+            mouse_pos[1] - rect.height // 2,
+            rect.width,
+            rect.height,
+        ),
+    )
