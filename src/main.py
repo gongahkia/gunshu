@@ -70,6 +70,7 @@ def main():
     #     cursor_sprite, (CURSOR_SPRITE_WIDTH, CURSOR_SPRITE_HEIGHT)
     # )
     # cursor_rect = cursor_sprite.get_rect()
+
     pygame.mouse.set_visible(False)
 
     running = True
