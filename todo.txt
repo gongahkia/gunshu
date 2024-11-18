@@ -1,3 +1,4 @@
+(A) 2024-11-17 Make the code more modular and allow all values like screen size, player metadata to be specified within a config.json that is serialised upon game launch so that properties can be easily tweaked in subsequent powerups @refactor
 (A) 2024-11-17 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 (A) 2024-11-17 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
 (A) 2024-11-17 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
@@ -15,31 +16,37 @@
 (A) 2024-11-17 Add in screenshake and other small quality of life updates when there's collisions with enemies @engine
 (A) 2024-11-17 Add a moving camera that follows each player and snaps to a given dungeon room similar to the old legend of zelda games for now, also to facilitate easier level generation @engine
 (A) 2024-11-17 Add in power ups with a tatoo-based system where the player's arms and legs can be covered with various insignia (hanya masks, etc) @engine
-(A) 2024-11-17 Add particle effects for everything @engine
 (A) 2024-11-17 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
-(A) 2024-11-17 Make the code more modular and allow all values like screen size, player metadata to be specified within a config.json that is serialised upon game launch so that properties can be easily tweaked in subsequent powerups @refactor
 
-(B) 2024-11-17 Consider recording the sound myself it might be funny lol @engine
-(B) 2024-11-17 Integrate an inventory system with the lore to give a reason for why player tatoos give him abilities @feature
-(B) 2024-11-18 Inlude a multiplayer lobby and entry screen similar to JDH's wizard game here (https://youtu.be/b5ovU9xeQ7c?si=tCMMtktlJ0ZiCKJs) covered in the last few minutes of the video @feature
-(B) 2024-11-18 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count @feature
-(B) 2024-11-18 Add a simple drag and drop element system that I can use to create levels with or implement this as a level editing system @feature
-(B) 2024-11-18 There has to be a better way for the server to smartly identify and rename each client that joins, as well as identifying old clients that have already joined, add functionality for this probably with a logbook of existing users, sockets and their IPs but encrypt for PDPA if required @debug
-(B) 2024-11-18 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
-(B) 2024-11-20 Make all of the server-side and client-side functions that create a socket and returns it @feature
-(B) 2024-11-20 Work on testing out server code and allowing up to 6 players to join the server first, consider handling the code like a chatroom for now @feature
-(B) 2024-11-17 After integrating multiplayer, the camera should follow each player around but the server should be able to track which room each player is in and toggle between all active players, so that when the actual game is up dead players can watch gameplay of players still alive @feature
+(B) 2024-11-18 Add function that deserializes level data from a json that contains metadata and other specifications so levels can be saved as jsons @engine
+(B) 2024-11-18 Add a map-builder that runs seperate from the game so that creating maps is easier for me and for other players if they want to use it @engine
+(B) 2024-11-18 If I have a level deserializing function, consider writing a serializing function that will then convert generated maps from the map maker into a json @engine
+(B) 2024-11-18 Implement naturalistic world and level generation by exploring different methods, wave function collapse, pearlin noise, and other methods like miziziz and enter the gungeon's approach @engine
 
-(C) 2024-11-20 Lore-wise, make Gunshu a Hades 3 clone that ties specifically into Japanese mythology, with spirits, yokai and other ghosts into the overall story, ask GPT for help generating ideas if I need help @feature
-(C) 2024-11-20 Use JDH Minecraft's practise of only drawing a two-toned sprite and then using pygame to recolor the sprite for all 6 characters (https://youtu.be/hvLYzISx6dU?si=bYloWsOA0qPxeLnp) @idea 
-(C) 2024-11-20 Keep the player character designs simple blobs but make the monster design sprites detailed and stylized, consider having the background in neutral colors (white and gray) @idea @design 
-(C) 2024-11-20 Emphasize the multiplayer aspect of the game and make it like multiplayer hades or ember knights in terms of having tight interlocking systems with crunchy controls and good feedback and screenshake on attacking @idea 
-(C) 2024-11-18 Consider making a complete minicraft clone where players can place items down as well @idea 
-(C) 2024-11-20 Use waveform generation for rougelite-tier random generation of the terrain @idea 
-(C) 2024-11-20 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @idea 
-(C) 2024-11-20 Consider integrating an LLM to generate natural language-like dialogue for the enemies, NPCs and other characters @feature
-(C) 2024-11-20 Add additional cutscene functionality and consider creating a function that makes creating cutscenes easier, additionally consider whether i want the cutscene to run client-side or server-side @idea @feature
+(C) 2024-11-20 After integrating multiplayer, the camera should follow each player around but the server should be able to track which room each player is in and toggle between all active players, so that when the actual game is up dead players can watch gameplay of players still alive @feature
+(C) 2024-11-20 Integrate an inventory system with the lore to give a reason for why player tatoos give him abilities @feature
+(C) 2024-11-20 Inlude a multiplayer lobby and entry screen similar to JDH's wizard game here (https://youtu.be/b5ovU9xeQ7c?si=tCMMtktlJ0ZiCKJs) covered in the last few minutes of the video @feature
+(C) 2024-11-20 Get a custom font in and get the FPS and CPU usage displayed on the bottom right of the screen, as well as Gunshu's current build and live player count @feature
+(C) 2024-11-20 Add a simple drag and drop element system that I can use to create levels with or implement this as a level editing system @feature
+(C) 2024-11-20 There has to be a better way for the server to smartly identify and rename each client that joins, as well as identifying old clients that have already joined, add functionality for this probably with a logbook of existing users, sockets and their IPs but encrypt for PDPA if required @debug
+(C) 2024-11-20 Port all game engine code to client.py and server.py and actually integrate a client server architecture into everything @feature
+(C) 2024-11-20 Make all of the server-side and client-side functions that create a socket and returns it @feature
+(C) 2024-11-20 Work on testing out server code and allowing up to 6 players to join the server first, consider handling the code like a chatroom for now @feature
+(C) 2024-11-20 Consider including a unique reloading system if weapons have reloading enabled to begin with, where players must draw a unique shape with their mouse cursor in combination with certain buttons to reload the weapon, could be used to recreate the feeling of casting an insignia for the player @idea @feature
+(C) 2024-11-20 Consider recording the game sounds myself it might be funny lol @engine
+(C) 2024-11-20 Add particle effects for everything @engine
 
-(D) 2024-11-20 Add details to README.md once available @admin @readme
-(D) 2024-11-20 Add containerisation and deployment with Docker @admin @readme
-(D) 2024-11-20 Add functionality for client-side to initiate closing the game and to automatically close the server socket when there are no clients left @debug
+(D) 2024-11-19 Consider the direction gunshu is taking, and whether I want it to be a crafting focused game like Minecraft, an action-focused game like Hades, or an in-between like Moonlighter, but refine the direction to be clearer and be more targetted in execution @idea
+(D) 2024-11-20 Lore-wise, make Gunshu a Hades 3 clone that ties specifically into Japanese mythology, with spirits, yokai and other ghosts into the overall story, ask GPT for help generating ideas if I need help @feature
+(D) 2024-11-20 Use JDH Minecraft's practise of only drawing a two-toned sprite and then using pygame to recolor the sprite for all 6 characters (https://youtu.be/hvLYzISx6dU?si=bYloWsOA0qPxeLnp) @idea 
+(D) 2024-11-20 Keep the player character designs simple blobs but make the monster design sprites detailed and stylized, consider having the background in neutral colors (white and gray) @idea @design 
+(D) 2024-11-20 Emphasize the multiplayer aspect of the game and make it like multiplayer hades or ember knights in terms of having tight interlocking systems with crunchy controls and good feedback and screenshake on attacking @idea 
+(D) 2024-11-18 Consider making a complete minicraft clone where players can place items down as well @idea 
+(D) 2024-11-20 Use waveform generation for rougelite-tier random generation of the terrain @idea 
+(D) 2024-11-20 Consider making gunshu like Hypnospace Outlaw, or some other website that appears to simulate a simple game of extreme tic-tac-toe but with a chat function? @idea 
+(D) 2024-11-20 Consider integrating an LLM to generate natural language-like dialogue for the enemies, NPCs and other characters @feature
+(D) 2024-11-20 Add additional cutscene functionality and consider creating a function that makes creating cutscenes easier, additionally consider whether i want the cutscene to run client-side or server-side @idea @feature
+
+(E) 2024-11-20 Add details to README.md once available @admin @readme
+(E) 2024-11-20 Add containerisation and deployment with Docker @admin @readme
+(E) 2024-11-20 Add functionality for client-side to initiate closing the game and to automatically close the server socket when there are no clients left @debug
