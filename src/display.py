@@ -1,5 +1,6 @@
 # ----- REQUIRED IMPORT -----
 
+import math
 import pygame
 
 # ----- PREDEFINED VALUES -----
@@ -145,3 +146,24 @@ def check_assets(player_sprite_sheet, font_asset):
         )
         return False
     return True
+
+
+def write_debug_information(fps_count, player_pos, direction, screen, font_asset):
+    """
+    FUA continue adding debug information to be written here and update the docstring as required
+
+    writes relevant debug information to the screen
+    """
+    try:
+        debug_text = f"FPS: {fps_count} | Position: {math.floor(player_pos['x'])},{math.floor(player_pos['y'])} | Direction: {direction.name}"
+        debug_surface = font_asset.render(debug_text, True, (0, 0, 0))
+        screen.blit(
+            debug_surface,
+            (
+                SCREEN_WIDTH - debug_surface.get_width() - 10,
+                SCREEN_HEIGHT - debug_surface.get_height() - 10,
+            ),
+        )
+        return True
+    except:
+        return False

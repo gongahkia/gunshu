@@ -9,6 +9,7 @@ from display import (
     load_sprite_frames,
     load_sprite_sheet,
     check_assets,
+    write_debug_information,
 )
 from player_input import (
     handle_input_with_mouse_8_directions,
@@ -66,7 +67,7 @@ def main():
     player_sprite_sheet = pygame.image.load(SPRITE_SHEET_FILEPATH).convert_alpha()
 
     if not check_assets(player_sprite_sheet, font_asset):
-        print("exiting due to missing assets...")
+        print("Error: Exiting due to missing assets.")
         return None
 
     pygame.mouse.set_visible(False)  # make the mouse invisible
@@ -176,22 +177,18 @@ def main():
                 print(remaining_time)
 
             fps = int(clock.get_fps())
-            debug_text = f"FPS: {fps} | Position: {math.floor(player_pos['x'])},{math.floor(player_pos['y'])} | Direction: {direction.name}"
-            debug_surface = font_asset.render(debug_text, True, (0, 0, 0))
-
-            screen.blit(
-                debug_surface,
-                (
-                    SCREEN_WIDTH - debug_surface.get_width() - 10,
-                    SCREEN_HEIGHT - debug_surface.get_height() - 10,
-                ),
-            )
+            if not write_debug_information(
+                fps, player_pos, direction, screen, font_asset
+            ):
+                print("Error: Exiting due to missing debug information.")
 
         pygame.display.flip()
         clock.tick(SCREEN_FPS)
 
     quit_display()
 
+
+# ----- MAIN EXECUTION CODE -----
 
 if __name__ == "__main__":
     main()
