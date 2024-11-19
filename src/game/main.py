@@ -37,7 +37,7 @@ SCREEN_HEIGHT = 600
 
 # SPRITE VALUES
 
-SPRITE_SHEET_FILEPATH = "./placeholder_sprite/white_static.png"
+SPRITE_SHEET_FILEPATH = "./sprite/player/purple_static.png"
 SPRITE_WIDTH = 16
 SPRITE_HEIGHT = 24
 
