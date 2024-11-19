@@ -41,12 +41,15 @@ def render_current_blink_status(
     blink_sprite_width,
     blink_sprite_height,
     active_blink_sprite_filepath,
-    inactive_blink_sprite_filepath,
+    inactive_blink_sprite_filepath_array,
 ):
     """
     renders the blink indicator for where the player is able to blink to, as well as if blink has yet to finish cooling down
     """
     try:
+        inactive_blink_sprite_1_filepath = inactive_blink_sprite_filepath_array[0]
+        inactive_blink_sprite_2_filepath = inactive_blink_sprite_filepath_array[1]
+        inactive_blink_sprite_3_filepath = inactive_blink_sprite_filepath_array[2]
         max_distance_vector = pygame.math.Vector2(
             blink_target_pos[0] - player_pos["x"],
             blink_target_pos[1] - player_pos["y"],
@@ -74,9 +77,21 @@ def render_current_blink_status(
                 ),
             )
         else:
-            inactive_blink_sprite = pygame.image.load(
-                inactive_blink_sprite_filepath
-            ).convert_alpha()
+            if remaining_time <= 1:
+                inactive_blink_sprite = pygame.image.load(
+                    inactive_blink_sprite_1_filepath
+                ).convert_alpha()
+            elif remaining_time <= 2:
+                inactive_blink_sprite = pygame.image.load(
+                    inactive_blink_sprite_2_filepath
+                ).convert_alpha()
+            elif remaining_time <= player_blink_cooldown_time:
+                inactive_blink_sprite = pygame.image.load(
+                    inactive_blink_sprite_3_filepath
+                ).convert_alpha()
+            else:
+                print("Error: Unknown edgecase has been hit")
+                return False
             inactive_blink_sprite = pygame.transform.scale(
                 inactive_blink_sprite, (blink_sprite_width, blink_sprite_height)
             )

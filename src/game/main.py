@@ -41,8 +41,12 @@ SPRITE_SHEET_FILEPATH = "./sprite/player/purple_static.png"
 SPRITE_WIDTH = 16
 SPRITE_HEIGHT = 24
 
-BLINK_INACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_inactive.png"
-BLINK_ACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_active.png"
+BLINK_INACTIVE_SPRITE_FILEPATH_ARRAY = [
+    "./sprite/player/blink_inactive_1.png",
+    "./sprite/player/blink_inactive_2.png",
+    "./sprite/player/blink_inactive_3.png",
+]
+BLINK_ACTIVE_SPRITE_FILEPATH = "./sprite/player/blink_active.png"
 BLINK_SPRITE_WIDTH = 40
 BLINK_SPRITE_HEIGHT = 40
 BLINK_TARGET_RADIUS = 10
@@ -150,7 +154,7 @@ def main():
                 BLINK_SPRITE_WIDTH,
                 BLINK_SPRITE_HEIGHT,
                 BLINK_ACTIVE_SPRITE_FILEPATH,
-                BLINK_INACTIVE_SPRITE_FILEPATH,
+                BLINK_INACTIVE_SPRITE_FILEPATH_ARRAY,
             ):
                 print("Error: Unable to render player's blink indicator")
 
