@@ -22,7 +22,7 @@ from inventory import (
     move_item_to_inventory,
     render_dragged_item,
 )
-from blink import (
+from src.game.blink import (
     update_player_position,
     render_current_blink_status,
 )
