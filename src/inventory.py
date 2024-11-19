@@ -115,3 +115,44 @@ def render_dragged_item(screen, item_index, mouse_pos, positions):
             rect.height,
         ),
     )
+
+
+def handle_left_mouse_click(
+    dragging_item, screen, inventory_positions, armour_positions
+):
+    """
+    handles left mouse click within the inventory to abstract logic away from the main file
+    """
+    if pygame.mouse.get_pressed()[0]:
+        if not dragging_item:
+            mouse_pos = pygame.mouse.get_pos()
+            selected_inventory_box, selected_armour_slot = handle_inventory_click(
+                screen, mouse_pos, inventory_positions, armour_positions
+            )
+            if selected_inventory_box is not None:
+                dragging_item = True
+                dragged_item = selected_inventory_box
+                drag_start_pos = "inventory"
+                print(f"inventory box {selected_inventory_box} clicked")
+            elif selected_armour_slot is not None:
+                dragging_item = True
+                dragged_item = selected_armour_slot
+                drag_start_pos = "armour"
+                print(f"armour slot {selected_armour_slot} clicked")
+            else:
+                pass
+        elif dragging_item:
+            dragging_item = False
+            dropped_inventory_box, dropped_armour_slot = handle_inventory_click(
+                screen, mouse_pos, inventory_positions, armour_positions
+            )
+            if drag_start_pos == "inventory" and dropped_armour_slot is not None:
+                move_item_to_armour(dragged_item, dropped_armour_slot)
+            elif drag_start_pos == "armour" and dropped_armour_slot is None:
+                move_item_to_inventory(dragged_item, dropped_inventory_box)
+        else:
+            pass
+    if dragging_item and drag_start_pos == "inventory":
+        render_dragged_item(screen, dragged_item, mouse_pos, inventory_positions)
+    elif dragging_item and drag_start_pos == "armour":
+        render_dragged_item(screen, dragged_item, mouse_pos, armour_positions)
