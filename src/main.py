@@ -102,7 +102,7 @@ def main():
 
         inventory_open = inventory_open_toggle
 
-        if inventory_open:
+        if inventory_open:  # inventory open
 
             screen.fill((50, 50, 50, 128))
             inventory_positions, armour_positions = render_player_inventory(
@@ -112,7 +112,7 @@ def main():
                 dragging_item, screen, inventory_positions, armour_positions
             )
 
-        else:
+        else:  # inventory not open
 
             if player_blink:
                 player_pos["x"], player_pos["y"] = new_player_pos
