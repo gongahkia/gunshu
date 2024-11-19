@@ -6,6 +6,7 @@
 (A) 2024-11-18 Consider moving rendering of the inventory to an entirely different function so the dragging can be debugged in isolation @debug
 (A) 2024-11-18 Debug the inventory dragging system where currently items can't be dragged from the inventory to armour slots and a weird blue square artifact appears @debug
 
+(A) 2024-11-19 Figure out a way to make the function handle_input_with_mouse_8_directions() within ./player_input.py able to handle all possible player inputs, including when blink is activated and when it is not @debug @refactor
 (A) 2024-11-19 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
 (A) 2024-11-19 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
 (A) 2024-11-19 Then add the logic for a HUD on the top-right where the player can see their existing buffs or boons and their icons on the top-right @engine

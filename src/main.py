@@ -50,6 +50,11 @@ BLINK_SPRITE_HEIGHT = 40
 FONT_FILEPATH = "./font/zero_liability_please.ttf"
 FONT_SIZE = 20
 
+# PLAYER VALUES
+
+PLAYER_BLINK_DISTANCE = 200
+PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
+
 
 def main():
 
@@ -107,6 +112,7 @@ def main():
             )
 
         else:
+
             if player_blink:
                 player_pos["x"], player_pos["y"] = new_player_pos
             else:
@@ -125,9 +131,6 @@ def main():
                 40,
                 direction,
             )
-
-            PLAYER_BLINK_DISTANCE = 200
-            PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
 
             blink_indicator_radius = 10
             max_distance_vector = pygame.math.Vector2(
