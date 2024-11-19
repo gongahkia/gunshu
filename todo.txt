@@ -1,10 +1,5 @@
-(A) 2024-11-18 Move all existing blink code to be within blink.py as well @refactor
-(A) 2024-11-19 Consider removing and abstracting the character's blink logic into a seperate file and not using it for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 (A) 2024-11-19 Add a pickups system and allow the player to first pickup items to begin with with a simplified inventory system rewritten from the groundup @engine
-
-(A) 2024-11-18 Move the inventory controls code to be within inventory.py as well @refactor
-(A) 2024-11-18 Consider moving rendering of the inventory to an entirely different function so the dragging can be debugged in isolation @debug
-(A) 2024-11-18 Debug the inventory dragging system where currently items can't be dragged from the inventory to armour slots and a weird blue square artifact appears @debug
+(A) 2024-11-19 Consider deactivating the player's blink ability for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 
 (A) 2024-11-19 Figure out a way to make the function handle_input_with_mouse_8_directions() within ./player_input.py able to handle all possible player inputs, including when blink is activated and when it is not @debug @refactor
 (A) 2024-11-19 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
@@ -22,6 +17,7 @@
 (A) 2024-11-19 Continue tweaking BLINK moveset so there's screenshake and other vfx as well @engine
 (A) 2024-11-19 Make the code more modular and allow all values like screen size, player metadata to be specified within a config.json that is serialised upon game launch so that properties can be easily tweaked in subsequent powerups @refactor
 (A) 2024-11-19 Need to debug the cooldown from the blink feature so that opening the inventory halts the blink timer cooldown from running down, or allow the inventory to only be opened outside combat in the shop areas to circumvent this issue @feature
+(A) 2024-11-18 Debug the render_responsive_dragging() function within ./inventory.py to fix the buggy dragging of existing items presently where currently items can't be dragged from the inventory to armour slots and a weird blue square artifact appears @debug
 
 (B) 2024-11-20 Add function that deserializes level data from a json that contains metadata and other specifications so levels can be saved as jsons @engine
 (B) 2024-11-20 Add a map-builder that runs seperate from the game so that creating maps is easier for me and for other players if they want to use it @engine
