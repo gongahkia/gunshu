@@ -82,8 +82,9 @@ def main():
 
     inventory_open = False
     dragging_item = False
-    dragged_item = None
-    drag_start_pos = None
+
+    # dragged_item = None
+    # drag_start_pos = None
 
     while running:
 
