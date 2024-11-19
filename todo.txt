@@ -1,6 +1,7 @@
 (A) 2024-11-19 Add a pickups system and allow the player to first pickup items to begin with with a simplified inventory system rewritten from the groundup @engine
-(A) 2024-11-19 Consider deactivating the player's blink ability for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 
+(A) 2024-11-19 Implement a cosmetics system so the player character can have items placed on top of them, and draw a sprite for that item in all 8 directions first @engine @feature
+(A) 2024-11-19 Consider deactivating the player's blink ability for now so I can test the inventory system and other elements first, maybe blink is something they can activate only when certain ofuda are activated so its a more modular stacking system @engine
 (A) 2024-11-19 Figure out a way to make the function handle_input_with_mouse_8_directions() within ./player_input.py able to handle all possible player inputs, including when blink is activated and when it is not @debug @refactor
 (A) 2024-11-19 Add armour as item pickups that the player cna then see in their inventory and move to their head, body or legs @engine
 (A) 2024-11-19 Give the armour actual stats so that there's then a reason for the active buffs or boons bar to be displayed on the top right @engine
