@@ -8,6 +8,7 @@ from display import (
     quit_display,
     load_sprite_frames,
     load_sprite_sheet,
+    check_assets,
 )
 from player_input import (
     handle_input_with_mouse_8_directions,
@@ -54,30 +55,15 @@ def main():
     screen, clock = init_display()
     player_pos = {"x": 400, "y": 300}
     positions = {1: player_pos}
-    animation_states = {}
 
-    font = pygame.font.Font(FONT_FILEPATH, FONT_SIZE)
-    sprite_sheet = pygame.image.load(SPRITE_SHEET_FILEPATH).convert_alpha()
+    font_asset = pygame.font.Font(FONT_FILEPATH, FONT_SIZE)
+    player_sprite_sheet = pygame.image.load(SPRITE_SHEET_FILEPATH).convert_alpha()
 
-    if not sprite_sheet:
-        print(
-            "Error: No sprites loaded from the sprite sheet. Please check the sprite filepath."
-        )
+    if check_assets(player_sprite_sheet, font_asset):
+        print("exiting due to missing assets...")
         return None
 
-    if not font:
-        print(
-            "Error: No font loaded from the specified filepath. Please check the font filepath."
-        )
-        return None
-
-    # cursor_sprite = pygame.image.load(CURSOR_SPRITE_FILEPATH).convert_alpha()
-    # cursor_sprite = pygame.transform.scale(
-    #     cursor_sprite, (CURSOR_SPRITE_WIDTH, CURSOR_SPRITE_HEIGHT)
-    # )
-    # cursor_rect = cursor_sprite.get_rect()
-
-    pygame.mouse.set_visible(False)
+    pygame.mouse.set_visible(False)  # make the mouse invisible
 
     running = True
     last_blink_time = 0
@@ -113,7 +99,7 @@ def main():
 
             screen.fill((50, 50, 50, 128))
             inventory_positions, armour_positions = render_player_inventory(
-                screen, font
+                screen, font_asset
             )
             if pygame.mouse.get_pressed()[0]:
                 if not dragging_item:
@@ -170,7 +156,7 @@ def main():
             render_with_8_directions(
                 screen,
                 positions,
-                sprite_sheet,
+                player_sprite_sheet,
                 SPRITE_WIDTH,
                 SPRITE_HEIGHT,
                 40,
@@ -194,13 +180,6 @@ def main():
                 player_pos["y"] + max_distance_vector.y,
             )
             if remaining_time >= PLAYER_BLINK_COOLDOWN_TIME:
-                # green_blink_indicator_color = (0, 255, 0)
-                # pygame.draw.circle(
-                #     screen,
-                #     green_blink_indicator_color,
-                #     blink_indicator_pos,
-                #     blink_indicator_radius,
-                # )
                 active_blink_sprite = pygame.image.load(
                     BLINK_ACTIVE_SPRITE_FILEPATH
                 ).convert_alpha()
@@ -215,13 +194,6 @@ def main():
                     ),
                 )
             else:
-                # red_blink_indicator_color = (255, 0, 0)
-                # pygame.draw.circle(
-                #     screen,
-                #     red_blink_indicator_color,
-                #     blink_indicator_pos,
-                #     blink_indicator_radius,
-                # )
                 inactive_blink_sprite = pygame.image.load(
                     BLINK_INACTIVE_SPRITE_FILEPATH
                 ).convert_alpha()
@@ -248,13 +220,6 @@ def main():
                     SCREEN_HEIGHT - debug_surface.get_height() - 10,
                 ),
             )
-
-            # mouse_x, mouse_y = pygame.mouse.get_pos()
-            # cursor_rect.topleft = (
-            #     mouse_x - cursor_rect.width // 2,
-            #     mouse_y - cursor_rect.height // 2,
-            # )
-            # screen.blit(cursor_sprite, cursor_rect)
 
         pygame.display.flip()
         clock.tick(SCREEN_FPS)

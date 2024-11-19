@@ -126,3 +126,22 @@ def quit_display():
     """
     pygame.quit()
     print("exiting pygame now...")
+
+
+def check_assets(player_sprite_sheet, font_asset):
+    """
+    FUA continue adding asset checks here and update the docstring as required
+
+    checks the following assets - player_sprite_sheet, font
+    """
+    if not player_sprite_sheet:
+        print(
+            "Error: No sprites loaded from the sprite sheet. Please check the sprite filepath."
+        )
+        return False
+    if not font_asset:
+        print(
+            "Error: No font loaded from the specified filepath. Please check the font filepath."
+        )
+        return False
+    return True
