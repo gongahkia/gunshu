@@ -15,12 +15,16 @@ from player_input import (
     handle_input_with_mouse_8_directions,
 )
 from inventory import (
-    render_player_inventory,
+    render_player_inventory_base,
+    render_responsive_dragging,
     handle_inventory_click,
-    handle_left_mouse_click,
     move_item_to_armour,
     move_item_to_inventory,
     render_dragged_item,
+)
+from blink import (
+    update_player_position,
+    render_current_blink_status,
 )
 
 # ----- PREDEFINED CONSTANTS -----
@@ -41,6 +45,7 @@ BLINK_INACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_inactive.png"
 BLINK_ACTIVE_SPRITE_FILEPATH = "./placeholder_sprite/blink_active.png"
 BLINK_SPRITE_WIDTH = 40
 BLINK_SPRITE_HEIGHT = 40
+BLINK_TARGET_RADIUS = 10
 
 # CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
 # CURSOR_SPRITE_WIDTH = 40
@@ -104,24 +109,24 @@ def main():
 
         if inventory_open:  # inventory open
 
-            screen.fill((50, 50, 50, 128))
-            inventory_positions, armour_positions = render_player_inventory(
+            inventory_positions, armour_positions = render_player_inventory_base(
                 screen, font_asset
             )
-            handle_left_mouse_click(
+            render_responsive_dragging(
                 dragging_item, screen, inventory_positions, armour_positions
             )
 
         else:  # inventory not open
 
-            if player_blink:
-                player_pos["x"], player_pos["y"] = new_player_pos
-            else:
-                player_pos["x"] += dx
-                player_pos["y"] += dy
-
-            player_pos["x"] = max(0, min(player_pos["x"], SCREEN_WIDTH))
-            player_pos["y"] = max(0, min(player_pos["y"], SCREEN_HEIGHT))
+            player_pos = update_player_position(
+                player_blink,
+                player_pos,
+                new_player_pos,
+                dx,
+                dy,
+                SCREEN_WIDTH,
+                SCREEN_HEIGHT,
+            )
 
             render_with_8_directions(
                 screen,
@@ -133,48 +138,20 @@ def main():
                 direction,
             )
 
-            blink_indicator_radius = 10
-            max_distance_vector = pygame.math.Vector2(
-                blink_target_pos[0] - player_pos["x"],
-                blink_target_pos[1] - player_pos["y"],
-            )
-            if max_distance_vector.length() > 0:
-                max_distance_vector = (
-                    max_distance_vector.normalize() * PLAYER_BLINK_DISTANCE
-                )
-            blink_indicator_pos = (
-                player_pos["x"] + max_distance_vector.x,
-                player_pos["y"] + max_distance_vector.y,
-            )
-            if remaining_time >= PLAYER_BLINK_COOLDOWN_TIME:
-                active_blink_sprite = pygame.image.load(
-                    BLINK_ACTIVE_SPRITE_FILEPATH
-                ).convert_alpha()
-                active_blink_sprite = pygame.transform.scale(
-                    active_blink_sprite, (BLINK_SPRITE_WIDTH, BLINK_SPRITE_HEIGHT)
-                )
-                screen.blit(
-                    active_blink_sprite,
-                    (
-                        blink_indicator_pos[0] - blink_indicator_radius,
-                        blink_indicator_pos[1] - blink_indicator_radius,
-                    ),
-                )
-            else:
-                inactive_blink_sprite = pygame.image.load(
-                    BLINK_INACTIVE_SPRITE_FILEPATH
-                ).convert_alpha()
-                inactive_blink_sprite = pygame.transform.scale(
-                    inactive_blink_sprite, (BLINK_SPRITE_WIDTH, BLINK_SPRITE_HEIGHT)
-                )
-                screen.blit(
-                    inactive_blink_sprite,
-                    (
-                        blink_indicator_pos[0] - blink_indicator_radius,
-                        blink_indicator_pos[1] - blink_indicator_radius,
-                    ),
-                )
-                print(remaining_time)
+            if not render_current_blink_status(
+                screen,
+                player_pos,
+                BLINK_TARGET_RADIUS,
+                blink_target_pos,
+                remaining_time,
+                PLAYER_BLINK_DISTANCE,
+                PLAYER_BLINK_COOLDOWN_TIME,
+                BLINK_SPRITE_WIDTH,
+                BLINK_SPRITE_HEIGHT,
+                BLINK_ACTIVE_SPRITE_FILEPATH,
+                BLINK_INACTIVE_SPRITE_FILEPATH,
+            ):
+                print("Error: Unable to render player's blink indicator")
 
             fps = int(clock.get_fps())
             if not write_debug_information(

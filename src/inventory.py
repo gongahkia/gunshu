@@ -26,10 +26,11 @@ ARMOUR_SLOTS_ARRAY = [None] * 3
 # ----- INVENTORY LOGIC -----
 
 
-def render_player_inventory(screen, font):
+def render_player_inventory_base(screen, font):
     """
     render the inventory overlay and return positions of inventory boxes and armour slots
     """
+    screen.fill((50, 50, 50, 128))
     inventory_positions = []
     armour_positions = []
     for row in range(INVENTORY_GRID_SIZE):
@@ -117,11 +118,11 @@ def render_dragged_item(screen, item_index, mouse_pos, positions):
     )
 
 
-def handle_left_mouse_click(
+def render_responsive_dragging(
     dragging_item, screen, inventory_positions, armour_positions
 ):
     """
-    handles left mouse click within the inventory to abstract logic away from the main file
+    handles dragging animations resulting from the left mouse click within the inventory
     """
     if pygame.mouse.get_pressed()[0]:
         if not dragging_item:
