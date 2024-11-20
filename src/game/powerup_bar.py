@@ -42,7 +42,7 @@ def render_powerup_bar(screen, player_powerup_array, powerup_json_filepath):
             print(f"Warning: Powerup '{powerup_name}' not found in the JSON file")
             continue
 
-        sprite_path = powerup_json[powerup_name].get("sprite_filename")
+        sprite_path = f'./sprite/item/{powerup_json[powerup_name].get("filename")}'
 
         if not sprite_path:
             print(f"Warning: Sprite filename missing for powerup '{powerup_name}'")

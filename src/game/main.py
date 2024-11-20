@@ -26,6 +26,9 @@ from blink import (
     update_player_position,
     render_current_blink_status,
 )
+from powerup_bar import (
+    render_powerup_bar,
+)
 
 # ----- PREDEFINED CONSTANTS -----
 
@@ -50,6 +53,16 @@ BLINK_ACTIVE_SPRITE_FILEPATH = "./sprite/player/blink_active.png"
 BLINK_SPRITE_WIDTH = 40
 BLINK_SPRITE_HEIGHT = 40
 BLINK_TARGET_RADIUS = 10
+
+# POWERUP BAR VALUES
+
+POWERUP_JSON_FILEPATH = "./powerup.json"
+PLAYER_POWERUP_ARRAY = [
+    "cosmos_ofuda",
+    "death_ofuda",
+    "cosmos_ofuda",
+    "katana",
+]  # FUA this is to be edited dynamically in the future
 
 # CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
 # CURSOR_SPRITE_WIDTH = 40
@@ -157,6 +170,11 @@ def main():
                 BLINK_INACTIVE_SPRITE_FILEPATH_ARRAY,
             ):
                 print("Error: Unable to render player's blink indicator")
+
+            if not render_powerup_bar(
+                screen, PLAYER_POWERUP_ARRAY, POWERUP_JSON_FILEPATH
+            ):
+                print("Error: Unable to render powerup bar")
 
             fps = int(clock.get_fps())
             if not write_debug_information(
