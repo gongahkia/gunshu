@@ -1,1 +1,223 @@
-// add the details later
+{
+    "cosmos_ofuda": {
+        "filename": "cosmos_ofuda.png",
+        "powerup_name": "cosmos ofuda",
+        "description": "A talisman infused with the vast energy of the cosmos, granting boundless potential at a cost.",
+        "impact": {
+            "player_health": 10,
+            "player_shield": 0,
+            "movement_speed": -10,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 20
+        }
+    },
+    "death_ofuda": {
+        "filename": "death_ofuda.png",
+        "powerup_name": "death ofuda",
+        "description": "Marked by the reaper, this talisman wields the aura of mortality to its bearer.",
+        "impact": {
+            "player_health": -20,
+            "player_shield": 20,
+            "movement_speed": 0,
+            "blink_count": 0,
+            "attack_range": 15,
+            "viewing_range": 0
+        }
+    },
+    "defeated_ofuda": {
+        "filename": "defeated_ofuda.png",
+        "powerup_name": "defeated ofuda",
+        "description": "A talisman created from the regrets of a fallen warrior, brimming with sorrowful strength.",
+        "impact": {
+            "player_health": -10,
+            "player_shield": 0,
+            "movement_speed": 0,
+            "blink_count": 0,
+            "attack_range": 20,
+            "viewing_range": 0
+        }
+    },
+    "dragon_ofuda": {
+        "filename": "dragon_ofuda",
+        "powerup_name": "dragon ofuda",
+        "description": "Blessed by the spirit of an ancient dragon, it imbues ferocity and endurance.",
+        "impact": {
+            "player_health": 15,
+            "player_shield": 0,
+            "movement_speed": 10,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": -10
+        }
+    },
+    "ghost_ofuda": {
+        "filename": "ghost_ofuda.png",
+        "powerup_name": "ghost ofuda",
+        "description": "A talisman carrying the ethereal presence of wandering spirits.",
+        "impact": {
+            "player_health": -10,
+            "player_shield": 15,
+            "movement_speed": 0,
+            "blink_count": 1,
+            "attack_range": 0,
+            "viewing_range": 0
+        }
+    },
+    "katana_weapon": {
+        "filename": "katana_weapon.png",
+        "powerup_name": "katana weapon",
+        "description": "A blade forged in honor of samurai legends, sharp and swift.",
+        "impact": {
+            "player_health": -5,
+            "player_shield": 0,
+            "movement_speed": 5,
+            "blink_count": 0,
+            "attack_range": 20,
+            "viewing_range": 0
+        }
+    },
+    "kusarigama_weapon": {
+        "filename": "kusarigama_weapon.png",
+        "powerup_name": "kusarigama weapon",
+        "description": "A chained weapon that dances between attack and defense, but demands mastery.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": 0,
+            "movement_speed": -5,
+            "blink_count": 0,
+            "attack_range": 15,
+            "viewing_range": 5
+        }
+    },
+    "naginata_weapon": {
+        "filename": "naginata_weapon.png",
+        "powerup_name": "naginata weapon",
+        "description": "A polearm that symbolizes elegance and sweeping control.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": 0,
+            "movement_speed": -10,
+            "blink_count": 0,
+            "attack_range": 25,
+            "viewing_range": 0
+        }
+    },
+    "poison_ofuda": {
+        "filename": "poison_ofuda.png",
+        "powerup_name": "poison ofuda",
+        "description": "Imbued with venomous energy, it brings pain to others—and its user.",
+        "impact": {
+            "player_health": -15,
+            "player_shield": 0,
+            "movement_speed": 0,
+            "blink_count": 1,
+            "attack_range": 10,
+            "viewing_range": 0
+        }
+    },
+    "prayer_beads_weapon": {
+        "filename": "prayer_beads_weapon.png",
+        "powerup_name": "prayer beads weapon",
+        "description": "Sacred beads blessed with divine energy, offering balance in chaos.",
+        "impact": {
+            "player_health": 10,
+            "player_shield": 10,
+            "movement_speed": -5,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 0
+        }
+    },
+    "prison_ofuda": {
+        "filename": "prison_ofuda.png",
+        "powerup_name": "prison ofuda",
+        "description": "A cursed talisman that binds and restricts, yet strengthens resolve.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": 25,
+            "movement_speed": -20,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 0
+        }
+    },
+    "probability_ofuda": {
+        "filename": "probability_ofuda.png",
+        "powerup_name": "probability ofuda",
+        "description": "A talisman that bends chance, tipping the odds unpredictably.",
+        "impact": {
+            "player_health": -15,
+            "player_shield": 0,
+            "movement_speed": 0,
+            "blink_count": 2,
+            "attack_range": 0,
+            "viewing_range": 5
+        }
+    },
+    "soul_ofuda": {
+        "filename": "soul_ofuda.png",
+        "powerup_name": "soul ofuda",
+        "description": "A talisman containing fragments of ancient souls, enhancing vitality.",
+        "impact": {
+            "player_health": 20,
+            "player_shield": 0,
+            "movement_speed": -5,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 10
+        }
+    },
+    "spiritual_bell_weapon": {
+        "filename": "spiritual_bell_weapon.png",
+        "powerup_name": "spiritual bell weapon",
+        "description": "A bell that resonates with divine frequencies, repelling darkness.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": 15,
+            "movement_speed": -10,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 15
+        }
+    },
+    "stun_ofuda": {
+        "filename": "stun_ofuda.png",
+        "powerup_name": "stun ofuda",
+        "description": "Crafted to disrupt foes, this talisman offers brief dominance in battle.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": 0,
+            "movement_speed": 0,
+            "blink_count": -1,
+            "attack_range": 10,
+            "viewing_range": 0
+        }
+    },
+    "time_ofuda": {
+        "filename": "time_ofuda.png",
+        "powerup_name": "time ofuda",
+        "description": "An enigmatic talisman that bends the flow of time, demanding a steep cost.",
+        "impact": {
+            "player_health": 0,
+            "player_shield": -20,
+            "movement_speed": 15,
+            "blink_count": 0,
+            "attack_range": 0,
+            "viewing_range": 0
+        }
+    },
+    "void_ofuda": {
+        "filename": "void_ofuda.png",
+        "powerup_name": "void ofuda",
+        "description": "A talisman forged in the void, consuming all but granting immense power.",
+        "impact": {
+            "player_health": -25,
+            "player_shield": 0,
+            "movement_speed": 0,
+            "blink_count": 1,
+            "attack_range": 25,
+            "viewing_range": 0
+        }
+    }
+}

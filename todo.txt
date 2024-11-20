@@ -4,12 +4,13 @@
 (A) 2024-11-20 This HUD should also allow a numerical value on the bottom right of the item sprite to be specified so that power-ups can be stacked and easily reflected @engine
 (A) 2024-11-20 Add functionality for the player stats to be tangibly boosted upon picking up an item, make it more modular than it already is @engine
 (A) 2024-11-20 Ask GPT to help generate ideas for existing power-ups, their names, backgrounds and stat boosts to the player, where some power-ups especially the more powerful ones can have debuffs also that act as a tradeoff for players @engine
-(A) 2024-11-20 Create a json that has all the items, their image filepaths, names, descriptions and effects on player status as properties for each item @engine @admin
+(A) 2024-11-20 Continue adding more powerups to ./powerup.json @engine @admin
 (A) 2024-11-20 Add a basic enemy the player can interact with and damage and make damage fun and squishy and crunchy to deal out @engine
 (A) 2024-11-20 Add a screen where players select the stat buff they want to go with if the sprite isn't picked up but is collected after certain bossfights, this will allow me to show the detailed hand drawn sized up sprites in game, inspiration is here (https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgIhnRr1gnqCn5nGKIwUxPyxfs456wXeYXBQ&s) @engine
 (A) 2024-11-20 Each item's sprite should have an outline dictating how good it is, use RISK OF RAIN or this video's colorscheme and figure out if I can color the outlines of each sprite programatically so the same item can have different rarities @engine @feature
 (A) 2024-11-20 Reference is here also https://youtu.be/f51IV88914c?si=5CIWYvk7CFlqbGvrI @reference @admin
 
+(B) 2024-11-27 Consider making the player's attack a generic attack that is rendered once only regardless and only the attack's range can extend based on the specified value, ask GPT for help with implementing the basic attack animation @feature @engine
 (B) 2024-11-27 Make the camera infinite scroll so the player can move farther away similar to vampire survivors @engine
 (B) 2024-11-27 Implement a cosmetics system so the player character can have items placed on top of them, and draw a sprite for that item in all 8 directions first @engine @feature
 (B) 2024-11-27 Consider deactiviting the player's inventory system for now so I can focus on other aspects of the character @engine
