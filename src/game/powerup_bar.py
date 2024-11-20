@@ -15,7 +15,7 @@ def update_player_powerup(player_powerup_array):
     return None
 
 
-def render_powerup_bar(screen, player_powerup_array, powerup_json_filepath):
+def render_powerup_bar(screen, font, player_powerup_array, powerup_json_filepath):
     """
     render the player's powerup bar on the top right of the screen
     """
@@ -60,7 +60,6 @@ def render_powerup_bar(screen, player_powerup_array, powerup_json_filepath):
         screen.blit(sprite, (x, y))
 
         if count > 1:
-            font = pygame.font.Font(None, 24)
             count_text = font.render(str(count), True, (255, 255, 255))
             text_rect = count_text.get_rect(
                 bottomright=(x + sprite_size, y + sprite_size)

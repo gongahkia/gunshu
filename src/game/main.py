@@ -61,7 +61,7 @@ PLAYER_POWERUP_ARRAY = [
     "cosmos_ofuda",
     "death_ofuda",
     "cosmos_ofuda",
-    "katana",
+    "katana_weapon",
 ]  # FUA this is to be edited dynamically in the future
 
 # CURSOR_SPRITE_FILEPATH = "./placeholder_sprite/cursor.png"
@@ -172,7 +172,7 @@ def main():
                 print("Error: Unable to render player's blink indicator")
 
             if not render_powerup_bar(
-                screen, PLAYER_POWERUP_ARRAY, POWERUP_JSON_FILEPATH
+                screen, font_asset, PLAYER_POWERUP_ARRAY, POWERUP_JSON_FILEPATH
             ):
                 print("Error: Unable to render powerup bar")
 
