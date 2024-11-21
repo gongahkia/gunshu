@@ -84,11 +84,12 @@ PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
 
 def main():
 
-    active_camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
-
     screen, clock = init_display()
     player_pos = {"x": 400, "y": 300}
     positions = {1: player_pos}
+
+    active_camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
+    active_camera.set_target(player_pos)
 
     font_asset = pygame.font.Font(FONT_FILEPATH, FONT_SIZE)
     player_sprite_sheet = pygame.image.load(SPRITE_SHEET_FILEPATH).convert_alpha()

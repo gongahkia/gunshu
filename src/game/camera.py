@@ -10,6 +10,12 @@ class Camera:
         self.width = width
         self.height = height
 
+    def set_target(self, target):
+        """
+        set the specified target that the camera will follow
+        """
+        self.target = target
+
     def apply(self, entity):
         """
         apply the camera's view to the entity
@@ -22,14 +28,14 @@ class Camera:
         """
         return position[0] - self.camera.x, position[1] - self.camera.y
 
-    def update(self, target):
+    def update(self, target_pos):
         """
         update the camera to follow a specified target
         """
-        x = -target.rect.centerx + int(self.width / 2)
-        y = -target.rect.centery + int(self.height / 2)
-        x = min(0, x)
-        y = min(0, y)
-        x = max(-(self.world_width - self.width), x)
-        y = max(-(self.world_height - self.height), y)
+        if self.target is None:
+            raise ValueError(
+                "Camera target not set, please use set_target() to assign a target"
+            )
+        x = -target_pos["x"] + int(self.width / 2)
+        y = -target_pos["y"] + int(self.height / 2)
         self.camera = pygame.Rect(x, y, self.width, self.height)
