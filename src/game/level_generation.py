@@ -85,3 +85,35 @@ def naive_wave_function_collapse(
         with open(output_filepath, "w") as file:
             json.dump({"level": level}, file, indent=4)
     return level
+
+
+# ----- SAMPLE EXECUTION CODE -----
+
+if __name__ == "__main__":
+
+    print("test running level_generation.py...")
+
+    tile_set = {
+        "grass": {"color": "green"},
+        "water": {"color": "blue"},
+        "sand": {"color": "yellow"},
+    }
+
+    adjacency_rules = {
+        "grass": {"grass", "sand"},
+        "water": {"water", "sand"},
+        "sand": {"grass", "water", "sand"},
+    }
+
+    grid_size = (5, 5)
+
+    generated_level = naive_wave_function_collapse(
+        tile_set=tile_set,
+        adjacency_rules=adjacency_rules,
+        grid_size=grid_size,
+        output_filepath="generated_level.json",
+    )
+
+    print("Generated Level:")
+    for row in generated_level:
+        print(row)

@@ -1,3 +1,8 @@
+(A) 2024-11-20 Tweak the level generation for wave function collapse @engine
+(A) 2024-11-20 Get level sprites loaded into the game @engine 
+(A) 2024-11-20 Work out how to add a scrolling camera so that players can navigate the level terrain not restricted to the static window @engine
+(A) 2024-11-20 Add stairs and the stacked dynamic realistic stairs climbing and descending effect per https://youtube.com/shorts/-rJgj82x3xA?si=mAIjqUZ90Y00bGYq @engine
+(A) 2024-11-20 Implement working pickups and inventory system asap @engine
 (A) 2024-11-20 Fix the buggy powerup bar, especially why it isn't rendering properly @debug @engine
 (A) 2024-11-20 Add a pickups system and allow the player to first pickup items to begin with with a simplified inventory system rewritten from the groundup @engine
 (A) 2024-11-20 This pickup system should be similar to risk of rain where there are many different items each with their own ability buffs and debuffs and that can have interlocking synergies @engine
@@ -6,17 +11,11 @@
 (A) 2024-11-20 Add a screen where players select the stat buff they want to go with if the sprite isn't picked up but is collected after certain bossfights, this will allow me to show the detailed hand drawn sized up sprites in game, inspiration is here (https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgIhnRr1gnqCn5nGKIwUxPyxfs456wXeYXBQ&s) @engine
 (A) 2024-11-20 Each item's sprite should have an outline dictating how good it is, use RISK OF RAIN or this video's colorscheme and figure out if I can color the outlines of each sprite programatically so the same item can have different rarities @engine @feature
 (A) 2024-11-20 Reference is here also https://youtu.be/f51IV88914c?si=5CIWYvk7CFlqbGvrI @reference @admin
+(A) 2024-11-20 Also make the window size and relative sprite size much larger @engine
 x (A) 2024-11-20 Add an intuitive HUD that shows the player's active powerups on the top-left of the screen with minimal words @engine
 x (A) 2024-11-20 This HUD should also allow a numerical value on the bottom right of the item sprite to be specified so that power-ups can be stacked and easily reflected @engine
 x (A) 2024-11-20 Add functionality for the player stats to be tangibly boosted upon picking up an item, make it more modular than it already is @engine
 x (A) 2024-11-20 Ask GPT to help generate ideas for existing power-ups, their names, backgrounds and stat boosts to the player, where some power-ups especially the more powerful ones can have debuffs also that act as a tradeoff for players @engine
-
-(A) 2024-11-20 Figure out how to add level generation via wave function collapse @engine
-(A) 2024-11-20 Get level sprites loaded into the game @engine 
-(A) 2024-11-20 Also make the window size and relative sprite size much larger @engine
-(A) 2024-11-20 Work out how to add a scrolling camera so that players can navigate the level terrain not restricted to the static window @engine
-(A) 2024-11-20 Add stairs and the stacked dynamic realistic stairs climbing and descending effect per https://youtube.com/shorts/-rJgj82x3xA?si=mAIjqUZ90Y00bGYq @engine
-(A) 2024-11-20 Implement working pickups and inventory system asap @engine
 
 (B) 2024-11-27 All future functionality and parts of gunshu should be added as seperate python files, where each file contains functions that accept the screen as one parameter and render the result to the screen, returning a boolean for successful function execution @engine
 (B) 2024-11-27 Consider making the player's attack a generic attack that is rendered once only regardless and only the attack's range can extend based on the specified value, ask GPT for help with implementing the basic attack animation @feature @engine
