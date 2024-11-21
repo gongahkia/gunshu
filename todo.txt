@@ -11,6 +11,12 @@ x (A) 2024-11-20 This HUD should also allow a numerical value on the bottom righ
 x (A) 2024-11-20 Add functionality for the player stats to be tangibly boosted upon picking up an item, make it more modular than it already is @engine
 x (A) 2024-11-20 Ask GPT to help generate ideas for existing power-ups, their names, backgrounds and stat boosts to the player, where some power-ups especially the more powerful ones can have debuffs also that act as a tradeoff for players @engine
 
+(A) 2024-11-20 Figure out how to add level generation via wave function collapse @engine
+(A) 2024-11-20 Also make the window size and relative sprite size much larger @engine
+(A) 2024-11-20 Work out how to add a scrolling camera so that players can navigate the level terrain not restricted to the static window @engine
+(A) 2024-11-20 Add stairs and the stacked dynamic realistic stairs climbing and descending effect per https://youtube.com/shorts/-rJgj82x3xA?si=mAIjqUZ90Y00bGYq @engine
+(A) 2024-11-20 Implement working pickups and inventory system asap @engine
+
 (B) 2024-11-27 All future functionality and parts of gunshu should be added as seperate python files, where each file contains functions that accept the screen as one parameter and render the result to the screen, returning a boolean for successful function execution @engine
 (B) 2024-11-27 Consider making the player's attack a generic attack that is rendered once only regardless and only the attack's range can extend based on the specified value, ask GPT for help with implementing the basic attack animation @feature @engine
 (B) 2024-11-27 Make the camera infinite scroll so the player can move farther away similar to vampire survivors @engine
