@@ -2,6 +2,9 @@
 
 import math
 import pygame
+from camera import (
+    Camera,
+)
 
 # ----- PREDEFINED VALUES -----
 
@@ -111,12 +114,13 @@ def render_with_8_directions(
     """
     screen.fill(WHITE)
     for player_id, pos in positions.items():
+        x, y = Camera.apply_position((pos["x"], pos["y"]))
         frame = load_directional_sprite(
             sprites, frame_width, frame_height, direction, output_sprite_size
         )
         screen.blit(
             frame,
-            (pos["x"] - output_sprite_size // 2, pos["y"] - output_sprite_size // 2),
+            (x - output_sprite_size // 2, y - output_sprite_size // 2),
         )
     pygame.display.flip()
 

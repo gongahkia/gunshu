@@ -29,6 +29,9 @@ from blink import (
 from powerup_bar import (
     render_powerup_bar,
 )
+from camera import (
+    Camera,
+)
 
 # ----- PREDEFINED CONSTANTS -----
 
@@ -80,6 +83,8 @@ PLAYER_BLINK_COOLDOWN_TIME = 3  # in seconds
 
 
 def main():
+
+    active_camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
 
     screen, clock = init_display()
     player_pos = {"x": 400, "y": 300}
@@ -145,6 +150,9 @@ def main():
                 SCREEN_WIDTH,
                 SCREEN_HEIGHT,
             )
+
+            active_camera.update(player_pos)
+            screen.fill(WHITE)
 
             render_with_8_directions(
                 screen,
