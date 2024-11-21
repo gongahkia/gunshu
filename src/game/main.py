@@ -153,7 +153,7 @@ def main():
             )
 
             active_camera.update(player_pos)
-            screen.fill(255, 255, 255)
+            screen.fill((255, 255, 255))
 
             render_with_8_directions(
                 screen,
@@ -163,6 +163,7 @@ def main():
                 SPRITE_HEIGHT,
                 40,
                 direction,
+                active_camera,
             )
 
             if not render_current_blink_status(

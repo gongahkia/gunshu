@@ -107,14 +107,21 @@ def load_directional_sprite(
 
 
 def render_with_8_directions(
-    screen, positions, sprites, frame_width, frame_height, output_sprite_size, direction
+    screen,
+    positions,
+    sprites,
+    frame_width,
+    frame_height,
+    output_sprite_size,
+    direction,
+    camera,
 ):
     """
     render the game state with player facing 8 possible directions
     """
-    screen.fill(WHITE)
+    screen.fill((255, 255, 255))
     for player_id, pos in positions.items():
-        x, y = Camera.apply_position((pos["x"], pos["y"]))
+        x, y = camera.apply_position((pos["x"], pos["y"]))
         frame = load_directional_sprite(
             sprites, frame_width, frame_height, direction, output_sprite_size
         )
