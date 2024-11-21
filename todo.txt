@@ -1,6 +1,7 @@
+(A) 2024-11-20 Debug the broken camera code @engine @debug
 (A) 2024-11-20 Continue tweaking the level generation code to account for other level items like chests, walls, doors, rooms and others for wave function collapse @engine
 (A) 2024-11-20 Get level sprites loaded into the game @engine 
-(A) 2024-11-20 Work out how to add a scrolling camera so that players can navigate the level terrain not restricted to the static window @engine
+x (A) 2024-11-20 Work out how to add a scrolling camera so that players can navigate the level terrain not restricted to the static window @engine
 (A) 2024-11-20 Add stairs and the stacked dynamic realistic stairs climbing and descending effect per https://youtube.com/shorts/-rJgj82x3xA?si=mAIjqUZ90Y00bGYq @engine
 (A) 2024-11-20 Implement working pickups and inventory system asap @engine
 (A) 2024-11-20 Fix the buggy powerup bar, especially why it isn't rendering properly @debug @engine
