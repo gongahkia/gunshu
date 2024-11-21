@@ -1,0 +1,39 @@
+{
+    "level": [
+        [
+            "sand",
+            "water",
+            "sand",
+            "sand",
+            "water"
+        ],
+        [
+            "water",
+            "sand",
+            "grass",
+            "grass",
+            "sand"
+        ],
+        [
+            "water",
+            "sand",
+            "grass",
+            "grass",
+            "grass"
+        ],
+        [
+            "water",
+            "water",
+            "sand",
+            "sand",
+            "grass"
+        ],
+        [
+            "sand",
+            "sand",
+            "sand",
+            "grass",
+            "sand"
+        ]
+    ]
+}
