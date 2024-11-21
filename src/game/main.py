@@ -152,7 +152,7 @@ def main():
             )
 
             active_camera.update(player_pos)
-            screen.fill(WHITE)
+            screen.fill(255, 255, 255)
 
             render_with_8_directions(
                 screen,
