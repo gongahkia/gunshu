@@ -1,3 +1,4 @@
+(A) 2024-11-23 Follow this tutorial (https://youtu.be/GwCiGixlqiU?si=snUpDei-MYWcjNDC) to get familiar with making a 2D game in Godot first @learning
 (A) 2024-11-23 Implement all existing game functionality in Godot4's engine @engine
 (A) 2024-11-23 Player movement including 8-directional turning and blink @engine
 (A) 2024-11-23 Existing sprites that I've drawn @engine
