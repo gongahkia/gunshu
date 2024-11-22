@@ -13,6 +13,7 @@
 (A) 2024-11-23 Each item's sprite should have an outline dictating how good it is, use RISK OF RAIN or this video's colorscheme and figure out if I can color the outlines of each sprite programatically so the same item can have different rarities @engine @feature
 (A) 2024-11-23 Reference is here also https://youtu.be/f51IV88914c?si=5CIWYvk7CFlqbGvrI @reference @admin
 (A) 2024-11-23 Update all the below todo.txt follow up actions to be for a Godot4 project per here @engine
+(A) 2024-11-23 Implement Godot4 Multiplayer and follow this tutorial https://youtu.be/e0JLO_5UgQo?si=j3Dd6q_bhJxCWZmN as needed @engine
 
 (B) 2024-11-27 All future functionality and parts of gunshu should be added as seperate python files, where each file contains functions that accept the screen as one parameter and render the result to the screen, returning a boolean for successful function execution @engine
 (B) 2024-11-27 Consider making the player's attack a generic attack that is rendered once only regardless and only the attack's range can extend based on the specified value, ask GPT for help with implementing the basic attack animation @feature @engine
