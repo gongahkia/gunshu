@@ -2,6 +2,10 @@
 
 Things learnt.
 
+## Engines
+
+* [Godot](https://godotengine.org/)
+
 ## Libraries
 
 * [Sockets](https://docs.python.org/3/library/socket.html) for networking
