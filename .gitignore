@@ -18,5 +18,10 @@ Desktop.ini
 *.bak
 *.swp
 *.tmp
-*.bak
 .env
+export_presets.cfg
+.project.godot
+import-*.godot
+*.import
+*.translation
+export/
