@@ -25,3 +25,5 @@ import-*.godot
 *.import
 *.translation
 export/
+.godot/
+/android/
