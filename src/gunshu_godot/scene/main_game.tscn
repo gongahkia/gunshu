@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0p5rqf784ueg"]
+
+[ext_resource type="PackedScene" uid="uid://n4sor56mtdfv" path="res://scene/player.tscn" id="1_ggq42"]
+
+[node name="main_game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 71.0
+offset_bottom = 77.0
+scale = Vector2(16.0415, 8.75441)
+
+[node name="player" parent="." instance=ExtResource("1_ggq42")]
+position = Vector2(312, 181)
