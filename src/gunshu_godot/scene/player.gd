@@ -5,14 +5,14 @@ extends CharacterBody2D
 const PLAYER_SPEED = 500 
 var mouse_position = null
 var direction_textures = {
-	"north": preload("res://asset/png/player/player_north.png"),
-	"northeast": preload("res://asset/png/player/player_north_east.png"),
-	"east": preload("res://asset/png/player/player_east.png"),
-	"southeast": preload("res://asset/png/player/player_south_east.png"),
-	"south": preload("res://asset/png/player/player_south.png"),
-	"southwest": preload("res://asset/png/player/player_south_west.png"),
-	"west": preload("res://asset/png/player/player_west.png"),
-	"northwest": preload("res://asset/png/player/player_north_west.png"),
+	"north": preload("res://asset/entity/player/player_north.jpg"),
+	"northeast": preload("res://asset/entity/player/player_north_east.jpg"),
+	"east": preload("res://asset/entity/player/player_east.jpg"),
+	"southeast": preload("res://asset/entity/player/player_south_east.jpg"),
+	"south": preload("res://asset/entity/player/player_south.jpg"),
+	"southwest": preload("res://asset/entity/player/player_south_west.jpg"),
+	"west": preload("res://asset/entity/player/player_west.jpg"),
+	"northwest": preload("res://asset/entity/player/player_north_west.jpg"),
 }
 @onready var sprite = get_node("player_idle")
 
@@ -24,6 +24,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	mouse_position = get_global_mouse_position()
 	update_sprite_direction()
+	if Input.is_action_just_pressed("attack_parry"): # bound to left mouse button
+		print("ATTACK/PARRY (left mouse button clicked)")
+		var katana = get_node("generic_weapon")
+		# FUA to add checks here to detect whether its a parry or slash in the future
+		katana.slash()
+		print("slashing...")
+	elif Input.is_action_just_pressed("block"): # bound to right mouse button
+		print("BLOCK (right mouse button clicked)")
 
 func update_sprite_direction() -> void:
 	var dir_to_mouse = (mouse_position - global_position).normalized()

@@ -1,18 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://dty1k1o5558e7"]
 
 [ext_resource type="Script" path="res://scene/generic_weapon.gd" id="1_8hlmu"]
-[ext_resource type="Texture2D" uid="uid://cpampq84tqrvy" path="res://asset/png/item/katana_weapon.png" id="2_df6rb"]
+[ext_resource type="Texture2D" uid="uid://cnkw1i5mkjvss" path="res://asset/png/item/katana_weapon.png" id="2_df6rb"]
 
 [sub_resource type="GDScript" id="GDScript_14s8t"]
 script/source = "extends Sprite2D
 "
 
 [node name="generic_weapon" type="Node2D"]
+rotation = 0.0156633
 script = ExtResource("1_8hlmu")
 
-[node name="KatanaWeapon" type="Sprite2D" parent="."]
-position = Vector2(215, -9)
-rotation = -2.17977
+[node name="weapon_pivot" type="Marker2D" parent="."]
+rotation = -0.0186164
+
+[node name="KatanaWeapon" type="Sprite2D" parent="weapon_pivot"]
+position = Vector2(180.773, -15.8424)
+rotation = 0.0320475
 scale = Vector2(0.28404, 0.28404)
 texture = ExtResource("2_df6rb")
 script = SubResource("GDScript_14s8t")
+
+[node name="firing_point" type="Marker2D" parent="weapon_pivot/KatanaWeapon"]
+position = Vector2(381.482, 37.1299)

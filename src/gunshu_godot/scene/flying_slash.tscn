@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dox68j37o56kp"]
+
+[ext_resource type="Script" path="res://scene/flying_slash.gd" id="1_vbwa5"]
+[ext_resource type="Texture2D" uid="uid://ytpu2e0ovfa5" path="res://asset/action/attack-5.png" id="2_iui8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvlh2"]
+size = Vector2(340.343, 341.74)
+
+[node name="flying_slash" type="Area2D"]
+top_level = true
+position = Vector2(-33, -38)
+rotation = -0.00452018
+scale = Vector2(0.240373, 0.240373)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_vbwa5")
+
+[node name="slash" type="Sprite2D" parent="."]
+position = Vector2(136.552, 162.867)
+rotation = -0.00218271
+texture = ExtResource("2_iui8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(136.176, 163.334)
+shape = SubResource("RectangleShape2D_cvlh2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
