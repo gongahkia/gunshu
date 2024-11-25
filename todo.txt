@@ -10,6 +10,7 @@
 (A) 2024-11-30 Player movement should be [8 direction movement], [dodge roll], [directional attack], [directional parry], [counter attack] @engine @controls 
 (A) 2024-11-30 Give enemies melee and long-range attacks all based on sword combat, so enemies can send their attacks and slashes flying and the player can parry them either way @engine @idea
 (A) 2024-11-30 Make timed parrying and perfectly timed parries a cornerstone of the game @engine @idea
+(A) 2024-11-30 In the future, consider making enemies and the player procedurally animated with moving joints @engine
 
 (A) 2024-12-06 Gradiated movement for realistic climbing up and climbing down stairs https://youtube.com/shorts/-rJgj82x3xA?si=mAIjqUZ90Y00bGYq @engine
 (A) 2024-12-06 This pickup system should be similar to risk of rain where there are many different items each with their own ability buffs and debuffs and that can have interlocking synergies @engine
