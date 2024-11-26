@@ -1,3 +1,4 @@
+(A) 2024-11-30 Redraw all sprites, game has new artstyle where the entire background is black and sprites are rendered as white / pastel light coloured PNGs only @engine
 (A) 2024-11-30 Implement all existing game functionality in Godot4's engine @engine
 (A) 2024-11-30 Player movement including 8-directional turning and blink @engine
 (A) 2024-11-30 Existing sprites that I've drawn @engine
@@ -7,7 +8,7 @@
 (A) 2024-11-30 Functioning pickup and inventory system @engine
 (A) 2024-11-30 Consider making the entire game boss-based like Furi so any fodder mobs are just there so the player can harvest them to equip powerups to fight the bosses @engine
 (A) 2024-11-30 Orient the entire game to be combat-heavy, specifically on sword-focused combat @idea @engine
-(A) 2024-11-30 Player movement should be [8 direction movement], [dodge roll], [directional attack], [directional parry], [counter attack] @engine @controls 
+(A) 2024-11-30 Player movement should be [8 direction movement], [dodge roll], [directional attack], [directional parry], [counter attack after parry] @engine @controls 
 (A) 2024-11-30 Give enemies melee and long-range attacks all based on sword combat, so enemies can send their attacks and slashes flying and the player can parry them either way @engine @idea
 (A) 2024-11-30 Make timed parrying and perfectly timed parries a cornerstone of the game @engine @idea
 (A) 2024-11-30 In the future, consider making enemies and the player procedurally animated with moving joints @engine
