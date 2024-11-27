@@ -1,4 +1,4 @@
-(A) 2024-11-30 Redraw all sprites, game has new artstyle where the entire background is black and sprites are rendered as white / pastel light coloured PNGs only @engine
+(A) 2024-11-30 Redraw all static and animated sprites with aseprite in pixel-art, use nice colors and specifically consider making the game in black and white and other monochromatic tones for now @engine @art
 (A) 2024-11-30 Implement all existing game functionality in Godot4's engine @engine
 (A) 2024-11-30 Player movement including 8-directional turning and blink @engine
 (A) 2024-11-30 Existing sprites that I've drawn @engine
